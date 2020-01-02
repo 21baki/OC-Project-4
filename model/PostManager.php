@@ -12,7 +12,7 @@ class PostManager {
     /* param $postId = (int)
      * this function retrieve posts 1 by 1, according to their id*/
 
-    public function getPost() {
+    public function getPost($postId) {
 
     }
 
@@ -21,6 +21,7 @@ class PostManager {
 
     private function dbConnect() {
         //TODO : Ne pas oublier de changer l'accès lors de l'export de la DB
+        //TODO : Déplacer cette fonction ailleurs
         $db = new PDO('mysql:host=localhost;dbname=OC4', 'root', '');
         return $db;
     }
