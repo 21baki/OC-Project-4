@@ -1,20 +1,10 @@
 <?php
-//Controler loading
+//Controler loadings
+require('model/PostManager.php');
+require('model/CommentManager.php');
 require('controller/controller.php');
+require('view/frontend/header.php');
+listPosts();
+require('view/frontend/footer.php');
 
-if(isset($_GET['action'])) {
-    if(isset($_GET['action'] == 'listPosts')) {
-        listPosts();
-    }
-    elseif ($_GET['action'] == 'post') {
-        if(isset($_GET['id']) && $_GET['id'] > 0) { //Verify if id are (int)
-            post();
-        }
-        else {
-            echo 'Erreur : aucun identifiant de billet envoyé';
-        }
-    }
-}
-else {
-    listPosts();
-}
+//TODO: Take require() in autoloader

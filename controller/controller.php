@@ -2,8 +2,6 @@
 //Model class loading
 //require_once('../model/PostManager.php');
 //require_once('../model/CommentManager.php');
-require('../view/frontend/header.php');
-require('../view/frontend/footer.php');
 
 /*
  * this function displays the list of posts
@@ -13,9 +11,10 @@ function listPosts() {
     $postManager = new PostManager();
     //Call of object function
     $posts = $postManager->getPosts();
-
-    //TODO: require() -> build the listPostsView on view
+    return $posts;
 }
+
+
 /*
  * this function displays the post according to the param id
  */
