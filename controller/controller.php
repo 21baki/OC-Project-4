@@ -27,7 +27,7 @@ function post() {
     //Call getComments(), function of CommentManager, and displays the comments according to the id
     $comments = $commentManager->getComments($_GET['id']);
 
-    //TODO: require() -> build the postView on view
+    require('../view/frontend/onePostView.php');
 }
 
 /*
