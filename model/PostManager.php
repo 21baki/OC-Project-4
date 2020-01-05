@@ -1,5 +1,5 @@
 <?php
-class PostManager {
+//TODO: class PostManager {
 
 
     /* this function recover the posts in DB
@@ -35,4 +35,4 @@ class PostManager {
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $db;
     }
-}
+
