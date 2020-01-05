@@ -1,16 +1,35 @@
 <?php
-class PostManager {
+class PostManager extends Manager {
+
+    //two functions that inherit from Manager
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    public function getEntityName()
+    {
+        return "PostManager";
+    }
 
 
     /* this function recover the posts in DB
      */
 
     public function getPosts() {
-        $db = $this->dbConnect();
-        $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 5');
-        while ($data = $req->fetch()) {//while loop for view
-            echo '<div id="onePost"><h1>' . $data['title'] . '</h1>' . $data['content'] . '<br />' . $data['creation_date_fr'] .  '</div>';
+        $dbh = $this->dbh;
+        $query = "SELECT * FROM posts ORDER BY creation_date";
+        $req = $dbh->prepare($query);
+        $req->execute();
+
+        while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
+            $post = new Post();
+            $post->hydrate($row);
+            $Posts[] = $post;
         }
+
+        return $Posts;
+
     }
 
     /* param $postId = (int)

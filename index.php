@@ -1,5 +1,6 @@
 <?php
 //Controler loadings
+require('model/Manager.php');
 require('model/PostManager.php');
 require('model/CommentManager.php');
 require('controller/controller.php');

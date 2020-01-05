@@ -1,7 +1,4 @@
 <?php
-//Model class loading
-//require_once('../model/PostManager.php');
-//require_once('../model/CommentManager.php');
 
 /*
  * this function displays the list of posts
