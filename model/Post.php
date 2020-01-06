@@ -7,10 +7,10 @@ namespace OC4\Model;
 class Post
 {
     private $id;
-    private $name;
+    private $title;
     private $content;
     private $author;
-    private $date_creation;
+    private $creation_date;
     public function __construct($data = null)
     {
         if($data)
@@ -18,13 +18,10 @@ class Post
             $this->hydrate($data);
         }
     }
-    public function hydrate(array $data)
-    {
-        foreach ($data as $key => $value)
-        {
-
-        }
-    }
+    //public function hydrate(array $data)
+    //{
+       // foreach ($data as $key => $value)
+    //}
     /**
      * @return mixed
      */
@@ -45,18 +42,18 @@ class Post
     /**
      * @return mixed
      */
-    public function getName()
+    public function getTitle()
     {
-        return $this->name;
+        return $this->title;
     }
     /**
      * @param mixed $name
      *
      * @return self
      */
-    public function setName($name)
+    public function setTitle($title)
     {
-        $this->name = $name;
+        $this->title = $title;
         return $this;
     }
     /**
@@ -94,12 +91,11 @@ class Post
         return $this;
     }
     /**
-     * @return DateTime
+     *s
      */
-    public function getDateCreation()
+    public function getCreationDate()
     {
-        $date = new DateTime($this->date_creation);
-        return $date;
+        return $this->creation_date;
         // $this->createdAt
         // passer la date JJ/MM/AAAA
     }
@@ -108,9 +104,9 @@ class Post
      *
      * @return self
      */
-    public function setDateCreation($createdAt)
+    public function setCreationDate($createdAt)
     {
-        $this->date_creation = $createdAt;
+        $this->creation_date = $createdAt;
         return $this;
     }
 }
