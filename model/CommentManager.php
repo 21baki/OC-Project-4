@@ -2,6 +2,7 @@
 
 namespace OC4\Model;
 
+//TODO: Configurer User et UserManager avant de s'occuper de cette partie
 class CommentManager {
 
     /* param $postId = (int)
