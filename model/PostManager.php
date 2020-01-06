@@ -1,4 +1,8 @@
 <?php
+
+namespace OC4\Model;
+use PDO;
+
 class PostManager extends Manager {
 
     //two functions that inherit from Manager
@@ -22,14 +26,22 @@ class PostManager extends Manager {
         $req = $dbh->prepare($query);
         $req->execute();
 
-        while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
-            $post = new Post();
-            $post->hydrate($row);
-            $Posts[] = $post;
-        }
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE,'OC4\Model\Post');
+        $data = $req->fetchAll();
 
-        return $Posts;
+        return $data;
+    }
 
+    public function getLastPost() {
+        $dbh = $this->dbh;
+        $query = 'SELECT * FROM posts ORDER BY creation_date DESC LIMIT 0, 1';
+        $req = $dbh->prepare($query);
+        $req->execute();
+
+        $row = $req->fetch(PDO::FETCH_ASSOC);
+        $lastPost = new Post($row);
+
+        return $lastPost;
     }
 
     /* param $postId = (int)
@@ -44,14 +56,4 @@ class PostManager extends Manager {
 
     }
 
-    /* this function connects to the database with PDO
-     */
-
-    private function dbConnect() {
-        //TODO : Ne pas oublier de changer l'accès lors de l'export de la DB
-        //TODO : Déplacer cette fonction ailleurs
-        $db = new PDO('mysql:host=localhost;dbname=oc4', 'root', '');
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        return $db;
-    }
 }

@@ -1,4 +1,7 @@
 <?php
+
+namespace OC4\Model;
+
 class CommentManager {
 
     /* param $postId = (int)

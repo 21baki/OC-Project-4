@@ -4,7 +4,7 @@ require('model/Manager.php');
 require('model/PostManager.php');
 require('model/CommentManager.php');
 require('model/Post.php');
-require('controller/controller.php');
+require('controller/HomeController.php');
 require('view/frontend/header.php');
 require('view/frontend/home.php');
 require('view/frontend/footer.php');

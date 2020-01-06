@@ -1,5 +1,9 @@
 <?php
 
+namespace OC4\Model;
+
+//TODO: $title et $creation_date
+
 class Post
 {
     private $id;

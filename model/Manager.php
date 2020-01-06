@@ -1,4 +1,8 @@
 <?php
+
+namespace OC4\Model;
+use PDO;
+
 abstract class Manager {
     protected $dbh;
 
