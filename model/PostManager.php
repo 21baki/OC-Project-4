@@ -57,9 +57,17 @@ class PostManager extends Manager {
     }
 
     //TODO: système de CRUD
-    public function createPost() {
+    public function createPost($title, $content, $author) {
+        $dbh = $this->dbh;
 
-        //TODO
+        $query = "INSERT INTO posts(title, content, author, creation_date) VALUES(:title, :content, :author, NOW())";
+
+        $req = $dbh->prepare($query);
+        //bindParam() binds a parameter to the specified variable name
+        $req->bindParam('title', $title);
+        $req->bindParam('content', $content);
+        $req->bindParam('author', $author);
+
     }
 
     public function updatePost() {
@@ -67,7 +75,7 @@ class PostManager extends Manager {
         //TODO
     }
 
-    public function deletePost()
+    public function deletePost() {
 
         //TODO
     }
