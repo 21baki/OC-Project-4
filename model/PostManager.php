@@ -60,7 +60,7 @@ class PostManager extends Manager {
     public function createPost($title, $content, $author) {
         $dbh = $this->dbh;
 
-        $query = "INSERT INTO posts(title, content, author, creation_date) VALUES(:title, :content, :author, NOW())";
+        $query = 'INSERT INTO posts(title, content, author, creation_date) VALUES(:title, :content, :author, NOW())';
 
         $req = $dbh->prepare($query);
         //bindParam() binds a parameter to the specified variable name
@@ -70,9 +70,17 @@ class PostManager extends Manager {
 
     }
 
-    public function updatePost() {
+    public function updatePost($id, $title, $content, $author) {
+        $dbh = $this->dbh;
 
-        //TODO
+        $query = 'UPDATE posts SET title = :title, content = :content, author = :author  WHERE id = :id';
+
+        $req = $dbh->prepare($query);
+        $req->bindParam('id', $id, PDO::PARAM_INT);
+        $req->bindParam('title', $title, PDO::PARAM_STR);
+        $req->bindParam('content', $content, PDO::PARAM_STR);
+        $req->bindParam('author', $queryuthor, PDO::PARAM_STR);
+        $req->execute();
     }
 
     public function deletePost() {
