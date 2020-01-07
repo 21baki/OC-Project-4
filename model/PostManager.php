@@ -71,6 +71,7 @@ class PostManager extends Manager
         $req->bindParam('title', $title);
         $req->bindParam('content', $content);
         $req->bindParam('author', $author);
+        $req->execute();
 
     }
 
