@@ -1,5 +1,8 @@
 
-<div>Bonjour et bienvenue sur le site de Jean Rochefort ! </div>
+<div>
+    <p>Bonjour et bienvenue sur le site de Jean Rochefort ! </p>
+    <a href="view/frontend/register.php">Inscription</a>
+</div>
 
 
     <?php
