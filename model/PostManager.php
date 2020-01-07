@@ -56,4 +56,18 @@ class PostManager extends Manager {
 
     }
 
-}
+    //TODO: système de CRUD
+    public function createPost() {
+
+        //TODO
+    }
+
+    public function updatePost() {
+
+        //TODO
+    }
+
+    public function deletePost()
+
+        //TODO
+    }
