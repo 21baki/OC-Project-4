@@ -1,18 +1,21 @@
 <?php
 
+use OC4\Model\PostManager;
+
 class Router
 {
 
     private $ctrl;
-    private $view;
 
     public function routeReq()
     {
+
+
         try
         {
             //Class Autoload
             spl_autoload_register(function($class) {
-            require_once('model/'.$class.'php');
+            require_once($class.'php');
         });
 
         $url='';
