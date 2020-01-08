@@ -8,3 +8,5 @@
         <input type="password" name="confirm" id="confirm" placeholder="Confirmez votre mot de passe" required>
     </form>
 </div>
+
+0101011101100101001000000110010001101111
