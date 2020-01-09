@@ -1,7 +1,7 @@
 <?php
 
-namespace OC4\Model;
-use PDO;
+
+require_once('Manager.php');
 
 class PostManager extends Manager
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace OC4\Model;
+
 use PDO; //Don't forget use this when class use namespace
 
 abstract class Manager {
