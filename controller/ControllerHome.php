@@ -11,17 +11,18 @@ class ControllerHome
     public function __construct()
     {
 
-            $this->posts();
+            $this->showPosts();
 
     }
 
-    public function posts()
+    public function showPosts()
     {
         $this->postManager = new PostManager();
         $data = $this->postManager->getPosts();
         var_dump($data);
+        require_once('view/frontend/header.php');
         require_once('view/frontend/home.php');
-
+        require_once('view/frontend/footer.php');
     }
 
 }

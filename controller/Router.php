@@ -9,7 +9,7 @@ class Router
 
     public function routeReq()
     {
-
+        //var_dump($_GET);
         require_once('controller/ControllerHome.php');
 
     }

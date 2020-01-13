@@ -1,7 +1,7 @@
 <?php
 
 
-use PDO; //Don't forget use this when class use namespace
+ //Don't forget use this when class use namespace
 
 abstract class Manager {
     protected $dbh;
