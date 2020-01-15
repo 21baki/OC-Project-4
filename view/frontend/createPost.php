@@ -9,7 +9,7 @@ require('../../model/PostManager.php'); ?>
 
 
 
-<form method="post" action="../../index.php?page=create_post">
+<form method="post" action="createPost.php?page=create_post">
     <input type="text" name="title" id="title" placeholder="Titre"> <br />
     <input type="text" name="content" id="content" placeholder="Contenu"> <br />
     <input type="date" name="date" id="date"> <br />
