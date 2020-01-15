@@ -1,4 +1,6 @@
 
+
+
 <div>
     <form method="post" action="../../model/UserManager.php">
         <h4>Formulaire d'inscription</h4>

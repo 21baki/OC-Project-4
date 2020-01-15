@@ -5,11 +5,12 @@
     <a href="view/frontend/createPost.php">Créer un post</a>
 </div>
 
-<?php foreach($data as $value) { ?>
-<div style="border: 3px solid red;" class="container">
 
+<div style="border: 3px solid red;" class="container">
+    <?php foreach($data as $value) { ?>
        <div style="border: 1px solid black;">
-             <h1><?php  echo $value['id']; ?></h1>
+             <h1>Titre : <?php  echo $value['title']; ?></h1>
+           <p> Contenu : <?php echo $value['content']; ?></p>
        </div>
     <?php } ?>
 
