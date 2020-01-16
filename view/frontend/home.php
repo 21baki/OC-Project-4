@@ -1,7 +1,7 @@
 
 <div>
     <p>Bonjour et bienvenue sur le site de Jean Rochefort ! </p>
-    <a href="view/frontend/register.php?page=register">Inscription</a> <br />
+    <a href="view/frontend/register.php">Inscription</a> <br />
     <a href="view/frontend/createPost.php">Créer un post</a>
 </div>
 
