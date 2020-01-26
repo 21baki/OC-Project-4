@@ -11,6 +11,7 @@ class Post
     private $content;
     private $author;
     private $creation_date;
+
     public function __construct($data = null)
     {
         if($data)

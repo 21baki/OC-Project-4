@@ -2,11 +2,12 @@
 
 require_once('Manager.php');
 
-//TODO: Configurer User et UserManager avant de s'occuper de cette partie
-
 class CommentManager extends Manager {
 
-
+    public function getEntityName()
+    {
+        return 'CommentManager';
+    }
 
     public function getComments($postId)
     {
@@ -15,9 +16,24 @@ class CommentManager extends Manager {
         $query = 'SELECT * FROM comments WHERE id_post = :id_post ORDER BY creation_date';
 
         $req = $dbh->prepare($query);
-        $req->bindParam('id_post', $postId, PDO::PARAM_STR);
+        $req->bindParam('id_post', $postId, PDO::PARAM_INT);
 
         $req->execute();
+
+        while($row = $req->fetch(PDO::FETCH_ASSOC)) {
+
+            $comment = new Comment();
+
+            $comment->hydrate($row);
+
+            $Comments[] = $comment;
+        }
+
+        if(empty($Comments)) {
+            return $Comments = NULL;
+        }
+
+        return $Comments;
     }
 
     public
@@ -32,7 +48,7 @@ class CommentManager extends Manager {
 
         $req->execute();
 
-        $row = $req->fetchAll(PDO::FETCH_ASSOC);
+        $row = $req->fetch(PDO::FETCH_ASSOC);
 
         $Comments = new Comment(); //TODO
         $Comments->hydrate($row);
@@ -40,8 +56,8 @@ class CommentManager extends Manager {
         return $Comments;
     }
 
-    public
-    function createComment($pseudo, $content, $postId)
+
+    public function createComment($author, $comment_content, $postId)
     {
         $dbh = $this->dbh;
 
@@ -49,13 +65,13 @@ class CommentManager extends Manager {
 
         $req = $dbh->prepare($query);
         $req->bindParam('author', $author);
-        $req->bindParam('id_post', $id_post);
-        $req->bindParam('id_post', $id_post);
+        $req->bindParam('id_post', $postId);
+        $req->bindParam('comment_content', $comment_content);
 
         $req->execute();
     }
 
-    public function updateComment($id, $id_post, $author, $comment_content)
+    public function updateComment($id, $postId, $author, $comment_content)
     {
         $dbh = $this->dbh;
 
@@ -63,7 +79,7 @@ class CommentManager extends Manager {
 
         $req = $dbh->prepare($query);
         $req->bindParam('id', $id, PDO::PARAM_INT);
-        $req->bindParam('id_post', $id_post, PDO::PARAM_INT);
+        $req->bindParam('id_post', $postId, PDO::PARAM_INT);
         $req->bindParam('author', $author, PDO::PARAM_STR);
         $req->bindParam('comment_content', $comment_content, PDO::PARAM_STR);
 

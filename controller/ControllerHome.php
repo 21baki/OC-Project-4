@@ -3,32 +3,65 @@
 require_once('model\PostManager.php');
 
 class ControllerHome
-
 {
-    private $postManager;
-    private $view;
-
-    public function __construct()
+    public function showHome()
     {
+        $manager = new PostManager();
+        $LastPost = $manager->getLastPost();
 
-            $this->showPosts();
-
+        $this->render('LastPost', array('Posts' => $LastPost));
     }
 
     public function showPosts()
     {
-        $this->postManager = new PostManager();
-        $data = $this->postManager->getPosts();
-        //var_dump($data);
+        $manager = new PostManager();
+        $Posts = $manager->getPosts();
 
-        require_once('view/frontend/home.php');
-
+        $this->render('Posts',  array('Posts' => $Posts));
     }
 
+    public function showPost($request)
+    {
+        $id = $request->get('id');
+        $manager = new PostManager();
+        $Post = $manager->getPost($id);
+
+        $manager2 = new CommentManager();
+        $Comments = $manager2->getComments($id);
+
+        $this->render('post', array('Post' => $Post, 'Comments' => $Comments));
+    }
+
+    public function showComments($request)
+    {
+        $postId = $request->get('id');
+
+        $manager = new CommentManager();
+        $Comments = $manager->getComments($postId);
+
+        $this->render('comments', array('Comments' => $Comments));
+    }
+
+    public function showRegistration()
+    {
+        $this->render('register');
+    }
+
+    public function showLogin()
+    {
+        $this->render('login');
+    }
+
+    public function showEditForm()
+    {
+        $this->render('edit');
+    }
+
+    public function showConnect()
+    {
+        $this->render('connected');
+    }
 }
-
-$controller_home = new ControllerHome;
-
 
 
 

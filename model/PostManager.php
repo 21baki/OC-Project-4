@@ -25,10 +25,11 @@ class PostManager extends Manager
     {
         $dbh = $this->dbh;
         $query = 'SELECT * FROM posts ORDER BY creation_date';
+
         $req = $dbh->prepare($query);
         $req->execute();
-
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'OC4\Model\Post');
+
         $data = $req->fetchAll(PDO::FETCH_ASSOC);
 
         return $data;
@@ -38,25 +39,31 @@ class PostManager extends Manager
     {
         $dbh = $this->dbh;
         $query = 'SELECT * FROM posts ORDER BY creation_date DESC LIMIT 0, 1';
+
         $req = $dbh->prepare($query);
         $req->execute();
 
         $row = $req->fetch(PDO::FETCH_ASSOC);
-        $lastPost = new Post($row);
 
-        return $lastPost;
+        $LastPost = new Post($row);
+
+        return $LastPost;
     }
 
     /* param $postId = (int)
      * this function retrieve posts 1 by 1, according to their id*/
 
-    public function getPost($postId)
+    public function getPost($id)
     {
-        $db = $this->dbConnect();
-        $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts WHERE id = ?');
-        $req->execute(array($postId));
-        $post = $req->fetch();
-        return $post;
+        $dbh = $this->dbh;
+        $query = 'SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts WHERE id = ?';
+
+        $req = $dbh->prepare($query);
+        $req->execute(array($id));
+
+        $Post = $req->fetch();
+
+        return $Post;
 
     }
 
@@ -89,7 +96,7 @@ class PostManager extends Manager
         $req->execute();
     }
 
-    public function deletePost()
+    public function deletePost($id)
     {
         $dbh = $this->dbh;
 
