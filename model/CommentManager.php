@@ -1,38 +1,43 @@
 <?php
 
-namespace OC4\Model;
+require_once('Manager.php');
 
 //TODO: Configurer User et UserManager avant de s'occuper de cette partie
-class CommentManager {
+class CommentManager extends Manager {
 
-    /* param $postId = (int)
-     * this function retrieves comments relating to each post via $postId
-     */
-    public function getComments($postId) {
-        $db = $this->dbConnect();
-        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \' % d /%m /%Y\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
-        $comments->execute(array($postId));
 
-        return $comments;
+    public function getComments($postId)
+    {
+        $dbh = $this->dbh;
+
+        $query = 'SELECT * FROM comments WHERE id_post = :id_post ORDER BY creation_date';
+
+        $req = $dbh->prepare($query);
+        $req->bindParam('id_post', $postId, PDO::PARAM_STR);
+
+        $req->execute();
     }
 
-    /* param $postId = (int)
-     * param $author = (string)
-     * param $comment = (string)
-     * this function displays comments
-     */
+    public function getComment($id)
+    {
+        $dbh = $this->dbh;
 
-    public function postComment($postId, $author, $comment) {
-        $db = $this->dbConnect();
-        $comments = $db->prepare('INSERT INTO comments(post_id, author, comment, comment_date) VALUES(?, ?, ?, NOW())');
-        $affectedLines = $comments->execute(array($postId, $author, $comment));
+        $query = 'SELECT * FROM comments WHERE id = :id';
 
-        return $affectedLines;
+        $req = $dbh->prepare($query);
+        $req->bindParam('id', $id, PDO::PARAM_INT);
 
+        $req->execute();
+
+        $row = $req->fetchAll(PDO::FETCH_ASSOC);
+
+        $Comments = new Comment(); //TODO
+        $Comments->hydrate($row);
+
+        return $Comments;
     }
 
-    private function dbConnect() {
-        $db = new PDO('mysql:host=localhost;dbname=oc4', 'root', '');
-        return $db;
-    }
+
+
+
 }
