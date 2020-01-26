@@ -5,6 +5,9 @@ class User {
     private $pseudo;
     private $password;
     private $email;
+    private $role;
+    private $errorsPseudo;
+    private $errorsMail;
 
     /**
      * @return mixed
@@ -68,5 +71,53 @@ class User {
     public function setEmail($email)
     {
         $this->email = $email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * @param mixed $role
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getErrorsPseudo()
+    {
+        return $this->errorsPseudo;
+    }
+
+    /**
+     * @param mixed $errorsPseudo
+     */
+    public function setErrorsPseudo($errorsPseudo)
+    {
+        $this->errorsPseudo = $errorsPseudo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getErrorsMail()
+    {
+        return $this->errorsMail;
+    }
+
+    /**
+     * @param mixed $errorsMail
+     */
+    public function setErrorsMail($errorsMail)
+    {
+        $this->errorsMail = $errorsMail;
     }
 }
