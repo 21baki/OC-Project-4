@@ -18,4 +18,4 @@ require('../../model/PostManager.php'); ?>
 
 </form>
 
-<a href="home.php"> Revenir à la page d'accueil</a>
+<a href="../../index.php"> Revenir à la page d'accueil</a>
