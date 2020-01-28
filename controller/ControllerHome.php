@@ -61,6 +61,16 @@ class ControllerHome
     {
         $this->render('connected');
     }
+
+    public function show403()
+    {
+        //TODO
+    }
+
+    public function show404()
+    {
+        //TODO
+    }
 }
 
 
