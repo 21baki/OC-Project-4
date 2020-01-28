@@ -64,12 +64,12 @@ class ControllerHome
 
     public function show403()
     {
-        //TODO
+        $this->render('403');
     }
 
     public function show404()
     {
-        //TODO
+        $this->render('404');
     }
 }
 
