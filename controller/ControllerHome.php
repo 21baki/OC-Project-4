@@ -2,7 +2,7 @@
 
 require_once('model\PostManager.php');
 
-class ControllerHome
+class ControllerHome extends View
 {
     public function showHome()
     {
