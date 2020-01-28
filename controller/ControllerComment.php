@@ -25,5 +25,5 @@ class ControllerComment extends View
     public function reportComment
     {
         //TODO
-    }
+    }§
 }
