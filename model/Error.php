@@ -95,6 +95,6 @@ class Error
     {
         $this->Clean = $Clean;
 
-        return $this
+        return $this;
     }
 }
