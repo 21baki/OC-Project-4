@@ -24,12 +24,25 @@ class ControllerAuthentification extends View
 
     public function signOut()
     {
-        //TODO
+        session_unset();
+        header('Location:index');
     }
 
     public function isValid($request)
     {
-        //TODO
+        if($this->userSession->logged()) {
+            $this->redirect('home');
+        }
+
+        $pseudo = $request->get('pseudo');
+        $password = $request->get('password');
+        $confirm = $request->get('confirm');
+        $email = $request->get('email');
+
+        $manager = new UserManager();
+        $user = manager->verify($pseudo, $email);
+
+        //TODO: Error Manager
     }
 
 }
