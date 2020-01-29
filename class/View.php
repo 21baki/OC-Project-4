@@ -7,7 +7,7 @@ class View
 
     public function __construct()
     {
-        //TODO
+        $this->userSession = new UserSession();
     }
 
     /**
@@ -30,11 +30,20 @@ class View
 
     public function render($template, $params = array())
     {
-        //TODO
+        extract($params);
+
+        $userSession = $this->userSession;
+
+        ob_start();
+        include_once(VIEW.$template.'.php');
+        $contentPage = ob_get_clean();
+
+        include_once(VIEW.'_gabarit.php');
     }
 
     public function redirect($route)
     {
-        //TODO
+        header('Location: '.HOST.$route);
+        exit();
     }
 }
