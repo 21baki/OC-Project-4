@@ -77,7 +77,7 @@ class ControllerComment extends View
         $this->redirect('post/id/'.''.$postId);
     }
 
-    public function reportComment
+    public function reportComment($request)
     {
         if(!$this->userSession->logged()) {
             $this->redirect('connect');
@@ -87,6 +87,9 @@ class ControllerComment extends View
         $postId = $request->get('postId');
 
         $manager = new CommentManager();
-        //TODO
+        $manager->reportComment($id);
+        $Comments = $manager->getComment($id);
+
+        $this->redirect('post/id/'.''.$postId);
     }
 }
