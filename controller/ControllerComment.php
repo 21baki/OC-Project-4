@@ -35,7 +35,7 @@ class ControllerComment extends View
             $this->redirect('403');
         }
 
-        $this->render('editCom', array('comments' => $comments));
+        $this->render('editCom', array('Comments' => $Comments));
     }
 
     public function updateComment($request)

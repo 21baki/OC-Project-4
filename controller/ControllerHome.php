@@ -9,7 +9,7 @@ class ControllerHome extends View
         $manager = new PostManager();
         $LastPost = $manager->getLastPost();
 
-        $this->render('LastPost', array('Posts' => $LastPost));
+        $this->render('LastPost', array('LastPost' => $LastPost));
     }
 
     public function showPosts()

@@ -3,12 +3,13 @@
 class Comment
 {
     private $id;
-    private $id_post;
+    private $postId;
     private $pseudo;
     private $comment_content;
     private $creation_date;
+    private $rating;
 
-    public function hydrate
+    public function hydrate()
     {
         foreach($data as $key => $value) {
             $method = 'set'.ucfirst($key);
@@ -38,17 +39,17 @@ class Comment
     /**
      * @return mixed
      */
-    public function getIdPost()
+    public function getPostId()
     {
-        return $this->id_post;
+        return $this->postId;
     }
 
     /**
-     * @param mixed $id_post
+     * @param mixed $postId
      */
-    public function setIdPost($id_post)
+    public function setPostId($postId)
     {
-        $this->id_post = $id_post;
+        $this->postId = $postId;
     }
 
     /**
@@ -97,6 +98,22 @@ class Comment
     public function setCreationDate($creation_date)
     {
         $this->creation_date = $creation_date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * @param mixed $rating
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
     }
 }
 
