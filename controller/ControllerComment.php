@@ -40,7 +40,9 @@ class ControllerComment extends View
 
     public function updateComment($request)
     {
-        //TODO
+        if($this->userSession->noRole('user') && $this->userSession->noRole('admin')) {
+            $this->redirect('connect');
+        }
     }
 
     public function deleteComment
