@@ -2,6 +2,8 @@
 
 $router = new Router($request);
 
+//TODO: replace author by pseudo in Post, Post Manager, Controller home, ect.. for more lisibility (and because i modified the database entry)
+
 
 
 

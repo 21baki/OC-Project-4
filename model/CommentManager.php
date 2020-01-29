@@ -57,21 +57,21 @@ class CommentManager extends Manager {
     }
 
 
-    public function createComment($author, $comment_content, $postId)
+    public function createComment($pseudo, $comment_content, $postId)
     {
         $dbh = $this->dbh;
 
-        $query = 'INSERT INTO comments(author, postId, comment_content, creation_date) VALUES(:author, :comment_content, :postId, NOW())';
+        $query = 'INSERT INTO comments(pseudo, postId, comment_content, creation_date) VALUES(:pseudo, :comment_content, :postId, NOW())';
 
         $req = $dbh->prepare($query);
-        $req->bindParam('author', $author);
+        $req->bindParam('pseudo', $pseudo);
         $req->bindParam('postId', $postId);
         $req->bindParam('comment_content', $comment_content);
 
         $req->execute();
     }
 
-    public function updateComment($id, $postId, $author, $comment_content)
+    public function updateComment($id, $postId, $pseudo, $comment_content)
     {
         $dbh = $this->dbh;
 
@@ -80,7 +80,7 @@ class CommentManager extends Manager {
         $req = $dbh->prepare($query);
         $req->bindParam('id', $id, PDO::PARAM_INT);
         $req->bindParam('postId', $postId, PDO::PARAM_INT);
-        $req->bindParam('author', $author, PDO::PARAM_STR);
+        $req->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
         $req->bindParam('comment_content', $comment_content, PDO::PARAM_STR);
 
         $req->execute();

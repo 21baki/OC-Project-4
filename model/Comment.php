@@ -4,7 +4,7 @@ class Comment
 {
     private $id;
     private $id_post;
-    private $author;
+    private $pseudo;
     private $comment_content;
     private $creation_date;
 
@@ -54,17 +54,17 @@ class Comment
     /**
      * @return mixed
      */
-    public function getAuthor()
+    public function getPseudo()
     {
-        return $this->author;
+        return $this->pseudo;
     }
 
     /**
-     * @param mixed $author
+     * @param mixed $pseudo
      */
-    public function setAuthor($author)
+    public function setPseudo($pseudo)
     {
-        $this->author = $author;
+        $this->pseudo = $pseudo;
     }
 
     /**
