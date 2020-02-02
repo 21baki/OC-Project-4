@@ -53,10 +53,10 @@ class Router
     {
         $request = $this->request;
 
-        if(key_exists($request->getRoutes(), $this->routes)) {
-            $controller = $this->routes[$request->getRoutes()]['controller'];
-            $method = $this->routes[$request->getRoutes()]['method'];
-            $area = $this->routes[$request->getRoutes()]['area'];
+        if(key_exists($request->getRoute(), $this->routes)) {
+            $controller = $this->routes[$request->getRoute()]['controller'];
+            $method = $this->routes[$request->getRoute()]['method'];
+            $area = $this->routes[$request->getRoute()]['area'];
 
             $currentController = new $controller();
             $currentController->$method($request);
