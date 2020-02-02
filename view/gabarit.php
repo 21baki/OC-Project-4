@@ -20,6 +20,59 @@
         </div>
         <!-- PRELOADER END -->
 
+        <!-- HEADER AREA -->
+        <header class="">
+            <div class="container" style="border:1px solid black;">
+                <div class="row">
+                    <div class="col-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <!-- Eventuel logo ici ? -->
+                            <a class="nav-link link" href="<?php echo HOST;?>home"><span>Blog de Jean Forteroche</span></a>
+                            <button class="navbar-toggler" type="button"></button>
+                            <div class="collapse navbar-collapse">
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="<?php echo HOST;?>home">Accueil</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="<?php echo HOST;?>posts">Articles/Chapitres</a>
+                                    </li>
+
+                                    <?php if($userSession->hasRole('admin')):?>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="<?php echo HOST;?>newPost">Ecrire</a>
+                                    </li>
+
+                                    <?php endif;?>
+
+                                    <?php if(!$userSession->logged()):?>
+
+                                    <li>
+                                        <a class="nav-link" href="<?php echo HOST;?>loginForm">Connexion</a>
+                                    </li>
+
+                                    <li>
+                                        <a class="nav-link" href="<?php echo HOST;?>registerForm">Inscription</a>
+                                    </li>
+
+                                    <?php else :?>
+
+                                    <li>
+                                        <a class="nav-link" href="<?php echo HOST;?>logout">Déconnexion</a>
+                                    </li>
+
+                                    <?php endif;?>
+
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
 
     </body>
 
