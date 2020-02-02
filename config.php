@@ -7,9 +7,9 @@ class MyAutoload
 {
     public static function start()
     {
-        spl_autoload_register(array(__CLASS__, 'autoload'));
-
         session_start();
+
+        spl_autoload_register(array(__CLASS__, 'autoload'));
 
         $root = $_SERVER['DOCUMENT_ROOT'];
         $host = $_SERVER['HTTP_HOST'];
@@ -17,10 +17,10 @@ class MyAutoload
         define('HOST', 'http://'.$host.'/');
         define('ROOT', $root.'/');
 
-        define('CONTROLLER', ROOT.'controller/');
-        define('MODEL', ROOT.'model/');
-        define('VIEW', ROOT.'view/');
-        define('CLASSE', ROOT.'class/');
+        define('CONTROLLER', ROOT.'OC-Project-4/'.'controller/');
+        define('MODEL', ROOT.'OC-Project-4/'.'model/');
+        define('VIEW', ROOT.'OC-Project-4/'.'view/');
+        define('CLASSE', ROOT.'OC-Project-4/'.'class/');
 
         define('PUBLIC', HOST.'public/');
 
@@ -39,5 +39,6 @@ class MyAutoload
         } elseif(file_exists(CONTROLLER.$class.'.php')) {
            include_once(CONTROLLER.$class.'.php');
         }
+
     }
 }
