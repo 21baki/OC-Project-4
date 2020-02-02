@@ -38,7 +38,7 @@ class View
         include_once(VIEW.$template.'.php');
         $contentPage = ob_get_clean();
 
-        include_once(VIEW.'_gabarit.php');
+        include_once(VIEW.'gabarit.php');
     }
 
     public function redirect($route)
