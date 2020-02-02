@@ -1,6 +1,13 @@
 <?php
 
+include_once ('config.php');
+
+Autoload::start();
+
+(isset($_GET['r'])) ? $request = $_GET['r'] : $request = 'index';
+
 $router = new Router($request);
+$router->renderController();
 
 //TODO: replace author by pseudo in Post, Post Manager, Controller home, ect.. for more lisibility (and because i modified the database entry)
 
