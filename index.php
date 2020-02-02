@@ -2,7 +2,7 @@
 
 include_once ('config.php');
 
-Autoload::start();
+MyAutoload::start();
 
 (isset($_GET['r'])) ? $request = $_GET['r'] : $request = 'index';
 
