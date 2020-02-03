@@ -30,9 +30,9 @@ class PostManager extends Manager
         $req->execute();
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'OC4\Model\Post');
 
-        $data = $req->fetchAll(PDO::FETCH_ASSOC);
+        $Posts = $req->fetchAll(PDO::FETCH_ASSOC);
 
-        return $data;
+        return $Posts;
     }
 
     public function getLastPost()
