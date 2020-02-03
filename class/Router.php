@@ -14,9 +14,18 @@ class Router
         "connect"           => ["controller" => 'ControllerHome',         "method" => 'showConnect',      "area" => ''],
         "403"               => ["controller" => 'ControllerHome',         "method" => 'show403',          "area" => ''],
         "404"               => ["controller" => 'ControllerHome',         "method" => 'show404',          "area" => ''],
-        "register"          => ["controller" => 'ControllerAuthentification', "method" => '',      "area" => ''],
-
-
+        "register"          => ["controller" => 'ControllerAuthentification', "method" => 'isValid',      "area" => ''],
+        "connexion.php"     => ["controller" => 'ControllerAuthentification', "method" => 'signIn',       "area" => ''],
+        "logout"            => ["controller" => 'ControllerAuthentification', "method" => 'signOut',      "area" => ''],
+        "comment"           => ["controller" => 'ControllerComment',       "method" => 'createComment',   "area" => ''],
+        "deleteComment"     => ["controller" => 'ControllerComment',       "method" => 'deleteComment',   "area" => ''],
+        "editComment"       => ["controller" => 'ControllerComment',       "method" => 'editComment',     "area" => ''],
+        "updateComment"     => ["controller" => 'ControllerComment',       "method" => 'updateComment',   "area" => ''],
+        "reportComment"     => ["controller" => 'ControllerComment',       "method" => 'reportComment',   "area" => ''],
+        "create"            => ["controller" => 'ControllerPost',       "method" => 'createArticle', "area" => 'admin'],
+        "edit"              => ["controller" => 'ControllerPost',       "method" => 'editArticle',   "area" => 'admin'],
+        "update"            => ["controller" => 'ControllerPost',       "method" => 'updateArticle', "area" => 'admin'],
+        "delete"            => ["controller" => 'ControllerPost',       "method" => 'deleteArticle', "area" => 'admin'],
      ];
 
     public function __construct($url)
