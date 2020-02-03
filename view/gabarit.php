@@ -5,7 +5,7 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link type="text/css" href="<?php echo PUBLICS;?>css/style.css" rel="stylesheet">
+        <link type="text/css" href="<?php echo PUBLICS;?>css/bootstrap-min.css" rel="stylesheet">
 
         <title>Blog de Jean Forteroche</title>
 
@@ -72,6 +72,37 @@
                 </div>
             </div>
         </header>
+
+        <div class="" style="background-color: black; height: 100px;">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center justify-content-center">
+                    <div class="col-12 col-md-8 col-lg-6">
+                        <div class="single-blog-title text-center">
+                            <!-- Catégories ? -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="content">
+
+            <?php echo $contentPage;?>
+
+        </section>
+
+        <footer>
+            <div class="row justify-content-center">
+                <div class="col-10 align-self-center">
+                    <div style="text-align: center;">
+                        <p> Jean Forteroche 2019-2020 © Tous droits réservés | Site construit par Hugo Dunogeant.</p>
+                    </div>
+                </div>
+            </div>
+
+            <script src="<?php echo PUBLICS;?>js/jquery-3.4.1.min.js"></script>
+            <script src="<?php echo PUBLICS;?>js/bootstrap.min.js"></script>
+        </footer>
 
 
     </body>

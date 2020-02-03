@@ -22,7 +22,7 @@ class MyAutoload
         define('VIEW', ROOT.'OC-Project-4/'.'view/');
         define('CLASSE', ROOT.'OC-Project-4/'.'class/');
 
-        define('PUBLICS', HOST.'public/');
+        define('PUBLICS', ROOT.'OC-Project-4/'.'public/');
 
         define('DB_HOST', 'localhost');
         define('DB_NAME', 'oc4');
@@ -41,4 +41,5 @@ class MyAutoload
         }
 
     }
+
 }
