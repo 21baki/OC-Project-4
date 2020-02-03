@@ -5,7 +5,7 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link type="text/css" href="<?php echo PUBLICS;?>css/bootstrap-min.css" rel="stylesheet">
+        <link type="text/css" href="<?php echo PUBLICS;?>css/style.css" rel="stylesheet">
 
         <title>Blog de Jean Forteroche</title>
 
