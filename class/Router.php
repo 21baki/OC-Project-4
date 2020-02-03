@@ -3,7 +3,9 @@
 class Router
 {
     private $url;
-    private $routes = [//TODO
+    private $routes = [
+        "index"     => ["controller" => 'ControllerHome',         "method" => 'showHome',         "area" => ''],
+        "home"      => ["controller" => 'ControllerHome',         "method" => 'showHome',         "area" => ''],
      ];
 
     public function __construct($url)

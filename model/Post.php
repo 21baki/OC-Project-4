@@ -1,7 +1,4 @@
 <?php
-
-namespace OC4\Model;
-
 //TODO: $title et $creation_date
 
 class Post
@@ -12,7 +9,7 @@ class Post
     private $author;
     private $creation_date;
 
-    public function __construct($data = null)
+   /* public function __construct($data = null)
     {
         if($data)
         {
@@ -23,6 +20,7 @@ class Post
     //{
        // foreach ($data as $key => $value)
     //}
+
     /**
      * @return mixed
      */
