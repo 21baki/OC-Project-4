@@ -4,8 +4,17 @@ class Router
 {
     private $url;
     private $routes = [
-        "index"     => ["controller" => 'ControllerHome',         "method" => 'showHome',         "area" => ''],
-        "home"      => ["controller" => 'ControllerHome',         "method" => 'showHome',         "area" => ''],
+        "index"         => ["controller" => 'ControllerHome',         "method" => 'showHome',         "area" => ''],
+        "home"          => ["controller" => 'ControllerHome',         "method" => 'showHome',         "area" => ''],
+        "posts"         => ["controller" => 'ControllerHome',         "method" => 'showPosts',        "area" => ''],
+        "post"          => ["controller" => 'ControllerHome',         "method" => 'showPost',         "area" => ''],
+        "loginForm"     => ["controller" => 'ControllerHome',         "method" => 'showLogin',        "area" => ''],
+        "registerForm"  => ["controller" => 'ControllerHome',         "method" => 'showRegistration', "area" => ''],
+        "newPost"       => ["controller" => 'ControllerHome',         "method" => 'showEditForm',     "area" => ''],
+        "connect"       => ["controller" => 'ControllerHome',         "method" => 'showConnect',      "area" => ''],
+        "403"           => ["controller" => 'ControllerHome',         "method" => 'show403',          "area" => ''],
+        "404"           => ["controller" => 'ControllerHome',         "method" => 'show404',          "area" => ''],
+
      ];
 
     public function __construct($url)
