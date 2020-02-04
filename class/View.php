@@ -35,7 +35,8 @@ class View
         $userSession = $this->userSession;
 
         ob_start();
-        include_once(VIEW.$template.'.php');
+        include_once('OC-project-4'.VIEW.$template.'.php');
+
         $contentPage = ob_get_clean();
 
         include_once(VIEW.'gabarit.php');
@@ -43,7 +44,7 @@ class View
 
     public function redirect($route)
     {
-        header('Location: '.HOST.$route);
+        header('Location: OC-Project-4'.HOST.$route);
         exit();
     }
 }

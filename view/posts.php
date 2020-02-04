@@ -3,7 +3,7 @@
         <div class="col-md-12 col-lg-12">
             <div class="">
                 <h2> Tous les Articles/Chapitres </h2>
-                <?php foreach($Posts as $post);?>
+                <?php foreach($Posts as $post):?>
                 <div class="container3">
                     <a class="link" href="<?php echo HOST.'post/id/'.$post->getId()?>"><h3><?php echo $post->getTitle();?></h3></a>
                     <br />
