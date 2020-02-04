@@ -24,13 +24,18 @@ class PostManager extends Manager
     public function getPosts()
     {
         $dbh = $this->dbh;
-        $query = 'SELECT * FROM posts ORDER BY creation_date';
+        $query = 'SELECT * FROM posts ORDER BY creation_date DESC';
 
         $req = $dbh->prepare($query);
         $req->execute();
-        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'OC4\Model\Post');
 
-        $Posts = $req->fetchAll(PDO::FETCH_ASSOC);
+        while($row = $req->fetch(PDO::FETCH_ASSOC)) {
+            $post = new Post();
+
+            $post->hydrate($row);
+
+            $Posts[] = $post;
+        }
 
         return $Posts;
     }

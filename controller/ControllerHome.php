@@ -1,6 +1,5 @@
 <?php
 
-require_once('model\PostManager.php');
 
 class ControllerHome extends View
 {
@@ -8,8 +7,8 @@ class ControllerHome extends View
     {
         $manager = new PostManager();
         $LastPost = $manager->getLastPost();
-
-        $this->render('LastPost', array('LastPost' => $LastPost));
+        //TODO: corrige this error (LastPost / home)
+        $this->render('home', array('LastPost' => $LastPost));
     }
 
     public function showPosts()
@@ -17,7 +16,7 @@ class ControllerHome extends View
         $manager = new PostManager();
         $Posts = $manager->getPosts();
 
-        $this->render('Posts',  array('Posts' => $Posts));
+        $this->render('posts',  array('Posts' => $Posts));
     }
 
     public function showPost($request)
