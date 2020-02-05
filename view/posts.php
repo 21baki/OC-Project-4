@@ -10,7 +10,7 @@
                     <div class="PostContent"><?php echo substr($post->getContent(), 0, 1000);?>...<a class="link" href="<?php echo HOST.'post/id/'.$post->getId()?>">Suite</a> </div>
                     <br />
                     <span class="AuthorName"><?php echo $post->getAuthor();?></span>
-                    <span class="CreationDate"> <?php echo $post->getCreationDate()->format('d/m/Y');?> </span>
+                    <span class="CreationDate"> <?php echo $post->getCreationDate();?> </span>
                     <?php if($userSession->hasRole('admin')):?>
                     <a class="link" href="<?php echo HOST.'edit/id/'.$post->getId()?>">Editer</a>
                     <a class="link" href="<?php echo HOST.'delete/id/'.$post->getId()?>">Supprimer</a>

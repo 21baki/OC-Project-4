@@ -9,7 +9,7 @@
                     <div class="PostContent"> <?php echo $Post->getContent();?> </div>
                     <br />
                     <span class="AuthorName"> <?php echo $Post->getAuthor();?> </span>
-                    <span class="CreationDate"> <?php echo $Post->getCreationDate()->format('d/m/Y');?> </span>
+                    <span class="CreationDate"> <?php echo $Post->getCreationDate();?> </span>
                 </div>
 
                 <div class="contact-form">

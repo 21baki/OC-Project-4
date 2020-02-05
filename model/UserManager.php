@@ -65,19 +65,24 @@ class UserManager extends Manager {
 
         $req->execute();
 
+        $data = $req->fetch(PDO::FETCH_ASSOC);
+
         $user = new User();
 
         if($data != '') {
             $user->hydrate($data);
             if($user->getPseudo() === $pseudo) {
                         //TODO
-                $user->setErrorsPseudo('Le pseudo est déja pris. Merci d\'en choisir un autre.');
+                $user->setErrorPseudo('Le pseudo est déja pris. Merci d\'en choisir un autre.');
             }
             if($user->getEmail() === $email) {
                         //TODO
-                $user->setErrorsEmail('L\'email est déja pris. Merci d\'en choisir un autre.');
+                $user->setErrorEmail('L\'email est déja pris. Merci d\'en choisir un autre.');
             }
+
+            return $user;
         }
+
 
     }
 }

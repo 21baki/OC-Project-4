@@ -13,11 +13,10 @@ class CommentManager extends Manager {
     {
         $dbh = $this->dbh;
 
-        $query = 'SELECT * FROM comments WHERE id_post = :id_post ORDER BY creation_date';
+        $query = 'SELECT * FROM comments WHERE postId = :postId ORDER BY creation_date';
 
         $req = $dbh->prepare($query);
         $req->bindParam('postId', $postId, PDO::PARAM_STR);
-
         $req->execute();
 
         while($row = $req->fetch(PDO::FETCH_ASSOC)) {

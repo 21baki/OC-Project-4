@@ -7,9 +7,6 @@
                     <div>
                         <a class="link" href="<?php echo HOST.'post/id/'.$LastPost->getId();?>">
                         <h3> <?php echo $LastPost->getTitle();?> </h3>
-                        <?php var_dump($LastPost->getTitle());?>
-
-                            <?php var_dump(HOST.'post/id/'.$LastPost->getId());?>
                         </a>
                         <br />
                         <div class="PostContent">

@@ -61,12 +61,15 @@ class PostManager extends Manager
     public function getPost($id)
     {
         $dbh = $this->dbh;
-        $query = 'SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts WHERE id = ?';
+        $query = 'SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts WHERE id = :id';
 
         $req = $dbh->prepare($query);
-        $req->execute(array($id));
+        $req->bindParam('id', $id, PDO::PARAM_INT);
+        $req->execute();
 
-        $Post = $req->fetch();
+        $row = $req->fetch(PDO::FETCH_ASSOC);
+
+        $Post = new Post($row);
 
         return $Post;
 
