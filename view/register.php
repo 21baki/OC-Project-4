@@ -63,7 +63,7 @@
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label for="email">E-mail</label>
-                                <span class="help-block" style="color:indigo;"><?php echo $ErrEmail;?></span>
+                                <span class="help-block" style="color:indigo;"><?php echo $ErrorEmail;?></span>
                             </div>
 
                             <div class="form-group">

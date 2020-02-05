@@ -16,7 +16,7 @@ class CommentManager extends Manager {
         $query = 'SELECT * FROM comments WHERE id_post = :id_post ORDER BY creation_date';
 
         $req = $dbh->prepare($query);
-        $req->bindParam('postId', $postId, PDO::PARAM_INT);
+        $req->bindParam('postId', $postId, PDO::PARAM_STR);
 
         $req->execute();
 

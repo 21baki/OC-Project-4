@@ -38,6 +38,8 @@ class MyAutoload
             include_once(CLASSE.$class.'.php');
         } elseif(file_exists(CONTROLLER.$class.'.php')) {
            include_once(CONTROLLER.$class.'.php');
+        } elseif(file_exists(VIEW.$class.'.php')) {
+            include_once(VIEW.$class.'.php');
         }
 
     }

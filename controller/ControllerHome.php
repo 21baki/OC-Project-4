@@ -7,7 +7,7 @@ class ControllerHome extends View
     {
         $manager = new PostManager();
         $LastPost = $manager->getLastPost();
-        //TODO: corrige this error (LastPost / home)
+
         $this->render('home', array('LastPost' => $LastPost));
     }
 

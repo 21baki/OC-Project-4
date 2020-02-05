@@ -9,17 +9,24 @@ class Post
     private $author;
     private $creation_date;
 
-   /* public function __construct($data = null)
+    public function __construct($data = null)
     {
         if($data)
         {
             $this->hydrate($data);
         }
     }
-    //public function hydrate(array $data)
-    //{
-       // foreach ($data as $key => $value)
-    //}
+
+    public function hydrate(array $data)
+    {
+        foreach($data as $key => $value) {
+            $method = 'set'.ucfirst($key);
+
+            if(method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
+    }
 
     /**
      * @return mixed
