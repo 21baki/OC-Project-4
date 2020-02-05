@@ -13,16 +13,16 @@
 
     <body>
         <!-- PRELOADER -->
-        <div id="">
-            <div class="">
-                <div id=""></div>
+      <!--  <div id="preloader">
+            <div class="preload-content">
+                <div id="world-load"></div>
             </div>
-        </div>
+        </div> -->
         <!-- PRELOADER END -->
 
         <!-- HEADER AREA -->
-        <header class="">
-            <div class="container" style="border:1px solid black;">
+        <header class="header-area">
+            <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <nav class="navbar navbar-expand-lg">
@@ -73,7 +73,7 @@
             </div>
         </header>
 
-        <div class="" style="background-color: black; height: 100px;">
+        <div class="hero-area bg-img background-overlay" style="background-color: black; height: 100px;">
             <div class="container h-100">
                 <div class="row h-100 align-items-center justify-content-center">
                     <div class="col-12 col-md-8 col-lg-6">
@@ -95,7 +95,7 @@
             <div class="row justify-content-center">
                 <div class="col-10 align-self-center">
                     <div style="text-align: center;">
-                        <p> Jean Forteroche 2019-2020 © Tous droits réservés | Site construit par Hugo Dunogeant.</p>
+                        <p> Jean Forteroche 2019-2020 © Tous droits réservés | Site construit par Hugo Dunogeant. Template by ColorLib ©</p>
                     </div>
                 </div>
             </div>
