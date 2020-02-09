@@ -23,21 +23,21 @@
         <!-- NAV AREA -->
         <nav  id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="<?php echo HOST;?>home">Billet simple pour l'Alaska</a>
+                <a class="navbar-brand" href="<?php echo HOST;?>home">Blog de Jean Forteroche</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
-                <div>
+                <div id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li>
+                        <li class="nav-item">
                             <a class="nav-link" href="<?php echo HOST;?>home">Accueil</a>
                         </li>
 
-                        <li>
+                        <li class="nav-item">
                             <a class="nav-link" href="<?php echo HOST;?>posts">Articles/Chapitres</a>
                         </li>
 
                         <?php if($userSession->hasRole('admin')):?>
 
-                            <li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="<?php echo HOST;?>newPost">Ecrire</a>
                             </li>
 
@@ -45,11 +45,11 @@
 
                         <?php if(!$userSession->logged()):?>
 
-                            <li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="<?php echo HOST;?>loginForm">Connexion</a>
                             </li>
 
-                            <li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="<?php echo HOST;?>registerForm">Inscription</a>
                             </li>
 
@@ -65,9 +65,10 @@
                 </div>
             </div>
         </nav>
+
         <!-- HEADER AREA -->
         <header class="masthead" style="background-image: url('../public/img/alaska.jpg')">
-            <div class="overlay">
+            <div class="overlay"></div>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 col-md-10 mx-auto">
@@ -78,21 +79,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </header>
 
-        <div class="overlay">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center justify-content-center">
-                    <div class="col-12 col-md-8 col-lg-6">
-                        <div class="single-blog-title text-center">
-                            <!-- Catégories ? -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <!-- CONTENT AREA -->
         <section id="content">
 
             <?php echo $contentPage;?>
@@ -100,10 +89,10 @@
         </section>
 
         <footer>
-            <div class="row justify-content-center">
-                <div class="col-10 align-self-center">
-                    <div style="text-align: center;">
-                        <p> Jean Forteroche 2019-2020 © Tous droits réservés | Site construit par Hugo Dunogeant. Template by StartBootstrap ©</p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <p class="copyright text-muted"> Jean Forteroche 2019-2020 © Tous droits réservés | Site construit par Hugo Dunogeant.</p>
                     </div>
                 </div>
             </div>
