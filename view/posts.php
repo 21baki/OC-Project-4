@@ -4,7 +4,7 @@
             <div class="">
                 <h2> Tous les Articles/Chapitres </h2>
                 <?php foreach($Posts as $post):?>
-                <div class="container3">
+                <div class="post-preview">
                     <a class="link" href="<?php echo HOST.'post/id/'.$post->getId()?>"><h3><?php echo $post->getTitle();?></h3></a>
                     <br />
                     <div class="PostContent"><?php echo substr($post->getContent(), 0, 1000);?>...<a class="link" href="<?php echo HOST.'post/id/'.$post->getId()?>">Suite</a> </div>

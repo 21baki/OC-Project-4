@@ -4,7 +4,7 @@
             <div class="col-md-12 col-lg-12">
                 <div class="page-content">
                     <h1>Dernier chapitre disponible</h1>
-                    <div>
+                    <div class="post-preview">
                         <a class="link" href="<?php echo HOST.'post/id/'.$LastPost->getId();?>">
                         <h3> <?php echo $LastPost->getTitle();?> </h3>
                         </a>

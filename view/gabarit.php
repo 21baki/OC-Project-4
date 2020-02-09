@@ -20,54 +20,62 @@
         </div> -->
         <!-- PRELOADER END -->
 
-        <!-- HEADER AREA -->
-        <header class="header-area">
+        <!-- NAV AREA -->
+        <nav  id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <nav class="navbar navbar-expand-lg">
-                            <!-- Eventuel logo ici ? -->
-                            <a class="nav-link link" href="<?php echo HOST;?>home"><span>Blog de Jean Forteroche</span></a>
-                            <button class="navbar-toggler" type="button"></button>
-                            <div class="collapse navbar-collapse">
-                                <ul class="navbar-nav ml-auto">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="<?php echo HOST;?>home">Accueil</a>
-                                    </li>
+                <a class="navbar-brand" href="<?php echo HOST;?>home">Billet simple pour l'Alaska</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+                <div>
+                    <ul class="navbar-nav ml-auto">
+                        <li>
+                            <a class="nav-link" href="<?php echo HOST;?>home">Accueil</a>
+                        </li>
 
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="<?php echo HOST;?>posts">Articles/Chapitres</a>
-                                    </li>
+                        <li>
+                            <a class="nav-link" href="<?php echo HOST;?>posts">Articles/Chapitres</a>
+                        </li>
 
-                                    <?php if($userSession->hasRole('admin')):?>
+                        <?php if($userSession->hasRole('admin')):?>
 
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="<?php echo HOST;?>newPost">Ecrire</a>
-                                    </li>
+                            <li>
+                                <a class="nav-link" href="<?php echo HOST;?>newPost">Ecrire</a>
+                            </li>
 
-                                    <?php endif;?>
+                        <?php endif;?>
 
-                                    <?php if(!$userSession->logged()):?>
+                        <?php if(!$userSession->logged()):?>
 
-                                    <li>
-                                        <a class="nav-link" href="<?php echo HOST;?>loginForm">Connexion</a>
-                                    </li>
+                            <li>
+                                <a class="nav-link" href="<?php echo HOST;?>loginForm">Connexion</a>
+                            </li>
 
-                                    <li>
-                                        <a class="nav-link" href="<?php echo HOST;?>registerForm">Inscription</a>
-                                    </li>
+                            <li>
+                                <a class="nav-link" href="<?php echo HOST;?>registerForm">Inscription</a>
+                            </li>
 
-                                    <?php else :?>
+                        <?php else :?>
 
-                                    <li>
-                                        <a class="nav-link" href="<?php echo HOST;?>logout">Déconnexion</a>
-                                    </li>
+                            <li>
+                                <a class="nav-link" href="<?php echo HOST;?>logout">Déconnexion</a>
+                            </li>
 
-                                    <?php endif;?>
+                        <?php endif;?>
 
-                                </ul>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- HEADER AREA -->
+        <header class="masthead" style="background-image: url('../public/img/alaska.jpg')">
+            <div class="overlay">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-10 mx-auto">
+                            <div class="site-heading">
+                                <h1>Billet simple pour l'Alaska</h1>
+                                <span class="subheading">Un roman innovant par Jean Forteroche</span>
                             </div>
-                        </nav>
+                        </div>
                     </div>
                 </div>
             </div>
