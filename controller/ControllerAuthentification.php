@@ -52,7 +52,9 @@ class ControllerAuthentification extends View
          $errs = $errors->getClean();
 
 
-        if(!isset($errM) || !isset($errP) || !isset($errs)) {
+
+
+        if(isset($errM) || isset($errP) || isset($errs)) {
             $user->setPseudo($pseudo);
             $user->setEmail($email);
             $this->render('register', array('errors' => $errors, 'user' => $user));

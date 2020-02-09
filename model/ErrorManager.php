@@ -31,9 +31,6 @@ class ErrorManager extends Manager
             $errors->setClean('x');
         }
 
-        var_dump($pseudo);
-        var_dump($password);
-        var_dump($confirm);
-        var_dump($email);
+        return $errors;
     }
 }
