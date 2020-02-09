@@ -47,11 +47,10 @@ class ControllerAuthentification extends View
         $manager2 = new ErrorManager();
         $errors = $manager2->verifyRegistration($pseudo, $password, $confirm, $email);
 
+
+
          $errP = $user->getErrorsPseudo();
          $errM = $user->getErrorsMail();
-         $errs = $errors->getClean();
-
-
 
 
         if(isset($errM) || isset($errP) || isset($errs)) {
