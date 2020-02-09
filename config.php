@@ -12,7 +12,8 @@ class MyAutoload
         spl_autoload_register(array(__CLASS__, 'autoload'));
 
         $root = $_SERVER['DOCUMENT_ROOT'];
-        $host = $_SERVER['HTTP_HOST'];
+        //Ne pas oublier de supprimer le OC-Project-4 lors de la mise en ligne du site.
+        $host = $_SERVER['HTTP_HOST'].'/OC-Project-4';
 
         define('HOST', 'http://'.$host.'/');
         define('ROOT', $root.'/');
@@ -22,7 +23,7 @@ class MyAutoload
         define('VIEW', ROOT.'OC-Project-4/'.'view/');
         define('CLASSE', ROOT.'OC-Project-4/'.'class/');
 
-        define('PUBLICS', HOST.'OC-Project-4/'.'public/');
+        define('PUBLICS', HOST.'public/');
 
         define('DB_HOST', 'localhost');
         define('DB_NAME', 'oc4');

@@ -30,5 +30,10 @@ class ErrorManager extends Manager
             $errors->setErrorEmail('L\'adresse email choisie n\'est pas valide. Merci d\'en choisir une autre.');
             $errors->setClean('x');
         }
+
+        var_dump($pseudo);
+        var_dump($password);
+        var_dump($confirm);
+        var_dump($email);
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+
+
 class ControllerAuthentification extends View
 {
     public function signIn($request)
@@ -45,11 +47,12 @@ class ControllerAuthentification extends View
         $manager2 = new ErrorManager();
         $errors = $manager2->verifyRegistration($pseudo, $password, $confirm, $email);
 
-        $errP = $user->getErrorPseudo();
-        $errM = $user->getErrorMail();
-        $errs = $errors->getClean();
+         $errP = $user->getErrorsPseudo();
+         $errM = $user->getErrorsMail();
+         $errs = $errors->getClean();
 
-        if(isset($errM) || isset($errP) || isset($errs)) {
+
+        if(!isset($errM) || !isset($errP) || !isset($errs)) {
             $user->setPseudo($pseudo);
             $user->setEmail($email);
             $this->render('register', array('errors' => $errors, 'user' => $user));
