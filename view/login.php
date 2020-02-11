@@ -36,7 +36,7 @@
                                 <label class="col-sm-4 hidden-xs-down control-label" for="button1id"></label>
                                 <div class="col-sm-8">
                                     <button id="button1id" name="button1id" class="btn btn-primary">Connexion</button>
-                                    <a id="registerLink" name="registerLink" class="btn btn-link" href="<?php echo HOST;?>">Vous souhaitez vous inscrire ?</a>
+                                    <a id="registerLink" name="registerLink" class="btn btn-link" href="<?php echo HOST;?>registerForm">Vous souhaitez vous inscrire ?</a>
                                 </div>
                             </div>
 
