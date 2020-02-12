@@ -67,7 +67,7 @@
         </nav>
 
         <!-- HEADER AREA -->
-        <header class="masthead" style="background-image: url('../public/img/alaska.jpg')">
+        <header class="masthead">
             <div class="overlay"></div>
                 <div class="container">
                     <div class="row">

@@ -11,26 +11,22 @@ class MyAutoload
 
         spl_autoload_register(array(__CLASS__, 'autoload'));
 
-        $root = $_SERVER['DOCUMENT_ROOT'];
-        //Ne pas oublier de supprimer le OC-Project-4 lors de la mise en ligne du site.
-        $host = $_SERVER['HTTP_HOST'].'/OC-Project-4';
-
-        define('HOST', 'http://'.$host.'/');
-        define('ROOT', $root.'/');
-
-        define('CONTROLLER', ROOT.'OC-Project-4/'.'controller/');
-        define('MODEL', ROOT.'OC-Project-4/'.'model/');
-        define('VIEW', ROOT.'OC-Project-4/'.'view/');
-        define('CLASSE', ROOT.'OC-Project-4/'.'class/');
-
-        define('PUBLICS', HOST.'public/');
-
-
     }
 
     public static function autoload($class)
     {
-        if(file_exists(MODEL.$class.'.php')) {
+       $paths = [MODEL, CLASSE, CONTROLLER, VIEW];
+
+       foreach ($paths as $p) {
+           if (file_exists($p.$class.'.php')) {
+               include $p.$class.'.php';
+               return true;
+           }
+       }
+       return false;
+
+
+        /* if(file_exists(MODEL.$class.'.php')) {
             include_once(MODEL.$class.'.php');
         } elseif(file_exists(CLASSE.$class.'.php')) {
             include_once(CLASSE.$class.'.php');
@@ -38,7 +34,7 @@ class MyAutoload
            include_once(CONTROLLER.$class.'.php');
         } elseif(file_exists(VIEW.$class.'.php')) {
             include_once(VIEW.$class.'.php');
-        }
+        } */
 
     }
 }
