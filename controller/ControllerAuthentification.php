@@ -4,15 +4,9 @@
 
 class ControllerAuthentification extends View
 {
-
-    public function __construct()
-    {
-        $manager = new UserManager();
-    }
-
     public function signIn($request)
     {
-
+        $manager = new UserManager();
 
         $pseudo = $request->get('pseudo');
         $password = $request->get('password');
@@ -26,7 +20,6 @@ class ControllerAuthentification extends View
             $this->redirect('home');
         }
 
-        $user->setErrorsPseudo('Votre mot de passe ou votre pseudo est incorrect.');
         $this->render('login', array('user' => $user));
     }
 
@@ -47,6 +40,7 @@ class ControllerAuthentification extends View
         $confirm = $request->get('confirm');
         $email = $request->get('email');
 
+        $manager = new UserManager();
         $user = $manager->verify($pseudo, $email);
 
         var_dump($pseudo);

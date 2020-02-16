@@ -49,7 +49,6 @@ class UserManager extends Manager {
        if($data != '') {
            $user->hydrate($data);
        } */
-        var_dump($req->execute());
         return $req->fetchAll();
     }
 
