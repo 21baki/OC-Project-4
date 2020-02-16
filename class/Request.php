@@ -40,11 +40,11 @@ class Request
     }
 
     public function get($param)
-    {
-        if(!isset($this->params[$param])) {
-            return null;
-        } else {
-            return $this->params[$param];
-        }
+{
+    if(!isset($this->params[$param])) {
+        return null;
+    } else {
+        return $this->params[$param];
     }
+}
 }

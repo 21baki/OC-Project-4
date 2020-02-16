@@ -39,34 +39,37 @@ class UserManager extends Manager {
 
         $req = $dbh->prepare($query);
         $req->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
-        
 
         $req->execute();
 
-        $data = $req->fetchAll(PDO::FETCH_ASSOC);
+        /*$data = $req->fetchAll(PDO::FETCH_ASSOC);
 
-        $user = new User();
+       $user = new User();
 
-        if($data != '') {
-            $user->hydrate($data);
-        }
-
-        return $user;
+       if($data != '') {
+           $user->hydrate($data);
+       } */
+        var_dump($req->execute());
+        return $req->fetchAll();
     }
 
-    public function verify($pseudo, $email)
+    public function verify($pseudo, $Hugo12)
     {
         $dbh = $this->dbh;
 
-        $query = 'SELECT * FROM users WHERE pseudo = :pseudo OR email = :email';
+        $query = 'SELECT * FROM users WHERE password = :password';
 
         $req = $dbh->prepare($query);
         $req->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
-        $req->bindParam('email', $email, PDO::PARAM_STR);
+        $req->bindParam('Hugo12', $Hugo12, PDO::PARAM_STR);
 
         $req->execute();
 
-        $data = $req->fetch(PDO::FETCH_ASSOC);
+        var_dump($pseudo);
+
+        $data = $req->fetchAll(PDO::FETCH_ASSOC);
+
+
 
         $user = new User();
 
@@ -81,7 +84,10 @@ class UserManager extends Manager {
                 $user->setErrorsMail('L\'email est déja pris. Merci d\'en choisir un autre.');
             }
 
+            var_dump($data);
+
             return $user;
+
         }
 
 

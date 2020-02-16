@@ -4,9 +4,15 @@
 
 class ControllerAuthentification extends View
 {
-    public function signIn($request)
+
+    public function __construct()
     {
         $manager = new UserManager();
+    }
+
+    public function signIn($request)
+    {
+
 
         $pseudo = $request->get('pseudo');
         $password = $request->get('password');
@@ -41,8 +47,9 @@ class ControllerAuthentification extends View
         $confirm = $request->get('confirm');
         $email = $request->get('email');
 
-        $manager = new UserManager();
         $user = $manager->verify($pseudo, $email);
+
+        var_dump($pseudo);
 
 
 
