@@ -44,17 +44,11 @@ class ControllerAuthentification extends View
         $manager = new UserManager();
         $user = $manager->verify($pseudo, $email);
 
-        $manager2 = new ErrorManager();
-        $errors = $manager2->verifyRegistration($pseudo, $password, $confirm, $email);
-
-        $errP = $user->getErrorsPseudo();
-        $errM = $user->getErrorsMail();
 
 
         if(isset($errM) || isset($errP) || isset($errs)) {
             $user->setPseudo($pseudo);
             $user->setEmail($email);
-            $this->render('register', array('errors' => $errors, 'user' => $user));
         } else {
             $manager->register($pseudo, $password, $email);
             $this->redirect('home');
