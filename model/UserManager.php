@@ -51,11 +51,17 @@ class UserManager extends Manager {
            $user->hydrate($data);
        } */
         $user = new User();
+        $data = $req->fetch();
 
-        if (!$req->fetch()) {
-            $user->setErrorsPseudo('Votre mot de passe ou pseudo est inccorect.');
+        if (is_array($data) && !empty($data)) { // Verif si fetch() est bien un tableau et si il ne retourne pas vide
+
+            $user->hydrate($data);
         } else {
-            $user->hydrate($req->fetch());
+
+            $user->setErrorsPseudo('Votre mot de passe ou votre pseudo est incorrect.');
+            var_dump($user);
+            // $user->hydrate($user);
+            return $user;
         }
 
         return $user;
