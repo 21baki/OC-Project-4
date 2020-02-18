@@ -45,7 +45,7 @@ class View
 
     public function redirect($route)
     {
-        header('Location: OC-Project-4'.HOST.$route);
+        header('Location:'.HOST.$route);
         exit;
     }
 }

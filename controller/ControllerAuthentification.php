@@ -4,28 +4,42 @@
 
 class ControllerAuthentification extends View
 {
+    private $manager;
+
+    public function __construct()
+    {
+        $this->manager = new UserManager();
+    }
+
     public function signIn($request)
     {
-        $manager = new UserManager();
-
         $pseudo = $request->get('pseudo');
         $password = $request->get('password');
-        $user = $manager->login($pseudo, $password);
 
-        if(isset($user) && password_verify($password, $user->getPassword())) {
+        $user = $this->manager->login($pseudo, $password);
+
+        if(isset($user)) {
+            if ($password === $user->getPassword()) {
 
             $userSession = new UserSession();
             $userSession->setPseudo($pseudo);
             $userSession->setRole($user->getRole());
-            $this->redirect('home');
+            // $this->redirect('home');
+            }
         }
 
         $this->render('login', array('user' => $user));
+
+        $vraiPseudo = strip_tags($_POST['pseudo']);
+
+
+
+        var_dump($_POST);
     }
 
     public function signOut()
     {
-        session_unset();
+        session_destroy();
         header('Location:index');
     }
 

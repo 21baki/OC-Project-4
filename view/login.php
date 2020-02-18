@@ -13,7 +13,7 @@
             <div class="col-md-12 col-lg-12">
                 <div class="contact-form">
                     <h5>Connexion</h5>
-                    <form method="post" action="connexion.php">
+                    <form method="post" action="<?php echo HOST;?>connexion.php">
                         <fieldset>
 
                             <div class="group" style="max-width: 50%;">

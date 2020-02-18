@@ -35,7 +35,7 @@
                             <a class="nav-link" href="<?php echo HOST;?>posts">Articles/Chapitres</a>
                         </li>
 
-                        <?php if($userSession->hasRole('admin')):?>
+                        <?php if($_SESSION['userSession']['role'] === 'admin'):?>
 
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo HOST;?>newPost">Ecrire</a>
@@ -43,7 +43,7 @@
 
                         <?php endif;?>
 
-                        <?php if(!$userSession->logged()):?>
+                        <?php if($_SESSION['userSession']['role'] === 'visiteur'):?>
 
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo HOST;?>loginForm">Connexion</a>

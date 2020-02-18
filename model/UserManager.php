@@ -35,10 +35,11 @@ class UserManager extends Manager {
     {
         $dbh = $this->dbh;
 
-        $query = 'SELECT pseudo, password, role FROM users WHERE pseudo = :pseudo';
+        $query = 'SELECT id, pseudo, password, role FROM users WHERE pseudo = :pseudo AND password = :password';
 
         $req = $dbh->prepare($query);
         $req->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
+        $req->bindParam('password', $password, PDO::PARAM_STR);
 
         $req->execute();
 
@@ -49,10 +50,18 @@ class UserManager extends Manager {
        if($data != '') {
            $user->hydrate($data);
        } */
-        return $req->fetchAll();
+        $user = new User();
+
+        if (!$req->fetch()) {
+            $user->setErrorsPseudo('Votre mot de passe ou pseudo est inccorect.');
+        } else {
+            $user->hydrate($req->fetch());
+        }
+
+        return $user;
     }
 
-    public function verify($pseudo, $Hugo12)
+    public function verify($pseudo, $email)
     {
         $dbh = $this->dbh;
 
@@ -60,7 +69,7 @@ class UserManager extends Manager {
 
         $req = $dbh->prepare($query);
         $req->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
-        $req->bindParam('Hugo12', $Hugo12, PDO::PARAM_STR);
+        $req->bindParam('Hugo12', $email, PDO::PARAM_STR);
 
         $req->execute();
 
