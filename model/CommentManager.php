@@ -23,7 +23,7 @@ class CommentManager extends Manager {
 
             $comment = new Comment();
 
-            $comment->hydrate($row);
+            //$comment->hydrate($row);s
 
             $Comments[] = $comment;
         }
@@ -60,14 +60,18 @@ class CommentManager extends Manager {
     {
         $dbh = $this->dbh;
 
-        $query = 'INSERT INTO comments(pseudo, postId, comment_content, creation_date) VALUES(:pseudo, :comment_content, :postId, NOW())';
+        $query = 'INSERT INTO comments(postId, pseudo, comment_content, creation_date, rating) VALUES(?, ?, ?, NOW(), 0)';
 
         $req = $dbh->prepare($query);
-        $req->bindParam('pseudo', $pseudo);
-        $req->bindParam('postId', $postId);
-        $req->bindParam('comment_content', $comment_content);
+        $req->bindParam(1, $postId, PDO::PARAM_STR);
+        $req->bindParam(2, $pseudo, PDO::PARAM_INT);
+        $req->bindParam(3, $comment_content, PDO::PARAM_STR);
 
         $req->execute();
+
+        var_dump($pseudo);
+        var_dump($comment_content);
+        var_dump($postId);
     }
 
     public function updateComment($id, $postId, $pseudo, $comment_content)

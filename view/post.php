@@ -14,7 +14,8 @@
 
                 <div class="contact-form">
                     <h5>Ecrire un commentaire :</h5>
-                    <form method="post" action="<?php echo HOST.'comment/id/'.$Post->getId();?>">
+                    <?php var_dump("hello"); ?>
+                    <form method="post" action="<?= HOST.'comment/id/'.$Post->getId();?>">
                         <fieldset>
                             <textarea name="content" type="text" id="content" style="height: 300px;"></textarea>
                             <input id="loginBut" class="btn btn-primary" type="submit" value="Envoyer" />

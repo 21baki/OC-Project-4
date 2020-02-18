@@ -4,18 +4,25 @@ class ControllerComment extends View
 {
     public function createComment($request)
     {
+
         if(!$this->userSession->logged()) {
-            $this->redirect('connect');
+            //$this->redirect('connect');
         }
+
+        var_dump($_GET);
 
         $pseudo = $this->userSession->getPseudo();
         $content = $request->get('content');
         $postId = $request->get('id');
 
         $manager = new CommentManager();
-        $manager->createComment($pseudo, $content, $postId);
+        $manager->createComment($pseudo, $_POST['content'], explode('/',$_GET['r'])[2]);
 
-        $this->redirect('post/id/'.''.$postId);
+        //$this->redirect('post/id/'.''.$postId);
+        var_dump(explode('/',$_GET['r']));
+        var_dump(explode($_GET['r'],'/'));
+
+
     }
 
     public function editComment($request)

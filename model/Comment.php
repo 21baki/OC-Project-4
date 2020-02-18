@@ -9,7 +9,7 @@ class Comment
     private $creation_date;
     private $rating;
 
-    public function hydrate()
+    /* public function hydrate()
     {
         foreach($data as $key => $value) {
             $method = 'set'.ucfirst($key);
@@ -18,7 +18,7 @@ class Comment
                 $this->$method($value);
             }
         }
-    }
+    } */
 
     /**
      * @return mixed

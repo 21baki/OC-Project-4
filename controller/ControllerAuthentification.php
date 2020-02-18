@@ -24,7 +24,7 @@ class ControllerAuthentification extends View
             $userSession = new UserSession();
             $userSession->setPseudo($pseudo);
             $userSession->setRole($user->getRole());
-            // $this->redirect('home');
+             //$this->redirect('home');
             }
         }
 
