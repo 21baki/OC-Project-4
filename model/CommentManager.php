@@ -23,7 +23,7 @@ class CommentManager extends Manager {
 
             $comment = new Comment();
 
-            //$comment->hydrate($row);s
+            $comment->hydrate($row);
 
             $Comments[] = $comment;
         }

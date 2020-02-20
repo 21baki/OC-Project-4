@@ -9,7 +9,7 @@ class Comment
     private $creation_date;
     private $rating;
 
-    /* public function hydrate()
+     public function hydrate(array $data)
     {
         foreach($data as $key => $value) {
             $method = 'set'.ucfirst($key);
@@ -18,7 +18,7 @@ class Comment
                 $this->$method($value);
             }
         }
-    } */
+    }
 
     /**
      * @return mixed
@@ -71,7 +71,7 @@ class Comment
     /**
      * @return mixed
      */
-    public function getCommentContent()
+    public function getComment_Content()
     {
         return $this->comment_content;
     }
@@ -79,25 +79,32 @@ class Comment
     /**
      * @param mixed $comment_content
      */
-    public function setCommentContent($comment_content)
+    public function setComment_Content($comment_content)
     {
         $this->comment_content = $comment_content;
+
+        return $this;
     }
 
     /**
      * @return mixed
+     * @throws Exception
      */
-    public function getCreationDate()
+    public function getCreation_Date()
     {
-        return $this->creation_date;
+        $date = new DateTime($this->creation_date);
+
+        return $date;
     }
 
     /**
      * @param mixed $creation_date
      */
-    public function setCreationDate($creation_date)
+    public function setCreation_Date($creation_date)
     {
         $this->creation_date = $creation_date;
+
+        return $this;
     }
 
     /**

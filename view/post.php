@@ -12,27 +12,39 @@
                     <span class="CreationDate"> <?php echo $Post->getCreationDate();?> </span>
                 </div>
 
-                <div class="contact-form">
-                    <h5>Ecrire un commentaire :</h5>
-                    <?php var_dump("hello"); ?>
-                    <form method="post" action="<?= HOST.'comment/id/'.$Post->getId();?>">
-                        <fieldset>
-                            <textarea name="content" type="text" id="content" style="height: 300px;"></textarea>
-                            <input id="loginBut" class="btn btn-primary" type="submit" value="Envoyer" />
-                        </fieldset>
-                    </form>
-                </div>
+                <?php if($userSession->logged()):?>
+
+                    <div class="contact-form">
+                        <h5>Ecrire un commentaire :</h5>
+
+                        <form method="post" action="<?= HOST.'comment/id/'.$Post->getId();?>">
+                            <fieldset>
+                                <textarea name="content" type="text" id="content" style="height: 300px;"></textarea>
+                                <input id="loginBut" class="btn btn-primary" type="submit" value="Envoyer" />
+                            </fieldset>
+                        </form>
+                    </div>
+
+                <?php endif;?>
+
             </div>
 
+            <?php var_dump('Hello');?>
             <?php if(isset($Comments)):?>
                 <h2>Commentaires</h2>
+                <?php var_dump($Comments); ?>
+
                 <?php foreach($Comments as $comment):?>
+
+
                     <?php if($comment->getRating() != 0 || $userSession->hasRole('admin')):?>
+
                         <?php if($comment->getRating() != 1):?>
-                        <?php $color='red';?>
+                            <?php $color='red';?>
                         <?php else :?>
-                        <?php $color='black'; ?>
+                            <?php $color='black'; ?>
                         <?php endif;?>
+
                         <div class="container3" style="color: <?php echo $color;?>">
                             <div class="post">
                                 <div class="PostContent"><?php echo $comment->getCommentContent();?></div>

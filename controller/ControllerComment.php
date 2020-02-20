@@ -6,7 +6,7 @@ class ControllerComment extends View
     {
 
         if(!$this->userSession->logged()) {
-            //$this->redirect('connect');
+            $this->redirect('connect');
         }
 
         var_dump($_GET);
