@@ -49,10 +49,10 @@ class CommentManager extends Manager {
 
         $row = $req->fetch(PDO::FETCH_ASSOC);
 
-        $Comments = new Comment(); //TODO
+        $Comments = new Comment();
         $Comments->hydrate($row);
 
-        return $Comment;
+        return $Comments;
     }
 
 
@@ -63,8 +63,8 @@ class CommentManager extends Manager {
         $query = 'INSERT INTO comments(postId, pseudo, comment_content, creation_date, rating) VALUES(?, ?, ?, NOW(), 0)';
 
         $req = $dbh->prepare($query);
-        $req->bindParam(1, $postId, PDO::PARAM_STR);
-        $req->bindParam(2, $pseudo, PDO::PARAM_INT);
+        $req->bindParam(1, $postId, PDO::PARAM_INT);
+        $req->bindParam(2, $pseudo, PDO::PARAM_STR);
         $req->bindParam(3, $comment_content, PDO::PARAM_STR);
 
         $req->execute();

@@ -18,7 +18,8 @@ class ControllerComment extends View
         $manager = new CommentManager();
         $manager->createComment($pseudo, $_POST['content'], explode('/',$_GET['r'])[2]);
 
-        //$this->redirect('post/id/'.''.$postId);
+        $this->redirect('post/id/'.''.$postId);
+
         var_dump(explode('/',$_GET['r']));
         var_dump(explode($_GET['r'],'/'));
 

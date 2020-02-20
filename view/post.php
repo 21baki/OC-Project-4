@@ -32,34 +32,38 @@
             <?php var_dump('Hello');?>
             <?php if(isset($Comments)):?>
                 <h2>Commentaires</h2>
-                <?php var_dump($Comments); ?>
+                <?php //var_dump($Comments); ?>
 
                 <?php foreach($Comments as $comment):?>
 
+                    <?php //var_dump($comment);?>
+                    <?php //var_dump($Comments);?>
 
-                    <?php if($comment->getRating() != 0 || $userSession->hasRole('admin')):?>
+                    <?php if($comment->getRating() != 0 || $userSession->hasRole('admin') || $userSession->hasRole('user')):?>
 
-                        <?php if($comment->getRating() != 1):?>
+                        <?php if($comment->getRating() != 0):?>
                             <?php $color='red';?>
                         <?php else :?>
                             <?php $color='black'; ?>
                         <?php endif;?>
 
+
                         <div class="container3" style="color: <?php echo $color;?>">
                             <div class="commentPost">
-                                <div class="PostContent"><?php echo $comment->getCommentContent();?></div>
+                                <div class="PostContent"><?php echo $comment->getComment_Content();?></div>
                                 <br />
                                 <span class="AuthorName"><?php echo $comment->getPseudo();?></span>
-                                <span class="CreationDate"><?php echo $comment->getCreationDate()->format('d/m/Y');?></span>
+                                <span class="CreationDate"><?php echo $comment->getCreation_Date()->format('d/m/Y');?></span>
                                 <?php if(($comment->getPseudo() === $userSession->getPseudo()) || $userSession->hasRole('admin')):?>
-                                <a href="<?php echo HOST.'editComment/postId/'.$Post->getId().'/id/'.$comment->getId();?>">Modifier</a>
-                                <a href="<?php echo HOST.'deleteComment/postId/'.$Post->getId().'/id/'.$comment->getId();?>">Supprimer</a>
+                                    <a href="<?php echo HOST.'editComment/postId/'.$Post->getId().'/id/'.$comment->getId();?>">Modifier</a>
+                                    <a href="<?php echo HOST.'deleteComment/postId/'.$Post->getId().'/id/'.$comment->getId();?>">Supprimer</a>
                                 <?php endif;?>
-                                <?php if($userSession->logged() && ($comment->getRating() != 0)):?>
-                                <a href="<?php echo HOST.'reportComment/postId/'.$Post->getId().'/id/'.$comment->getId();?>">Reporter</a>
+                                <?php if($userSession->logged()):?>
+                                    <a href="<?php echo HOST.'reportComment/postId/'.$Post->getId().'/id/'.$comment->getId();?>">Reporter</a>
                                 <?php endif;?>
                             </div>
                         </div>
+
                     <?php endif;?>
                 <?php endforeach;?>
             <?php endif;?>
