@@ -112,7 +112,7 @@ class Comment
      */
     public function getRating()
     {
-        return $this->rating;
+        return (int) $this->rating;
     }
 
     /**

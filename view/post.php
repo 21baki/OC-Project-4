@@ -58,7 +58,7 @@
                                     <a href="<?php echo HOST.'editComment/postId/'.$Post->getId().'/id/'.$comment->getId();?>">Modifier</a>
                                     <a href="<?php echo HOST.'deleteComment/postId/'.$Post->getId().'/id/'.$comment->getId();?>">Supprimer</a>
                                 <?php endif;?>
-                                <?php if($userSession->logged()):?>
+                                <?php if($userSession->logged() && ($comment->getRating() === '0')):?>
                                     <a href="<?php echo HOST.'reportComment/postId/'.$Post->getId().'/id/'.$comment->getId();?>">Reporter</a>
                                 <?php endif;?>
                             </div>
