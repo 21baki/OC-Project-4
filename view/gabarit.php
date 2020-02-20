@@ -55,7 +55,7 @@
 
                         <?php else :?>
 
-                            <li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="<?php echo HOST;?>logout">Déconnexion</a>
                             </li>
 
@@ -67,7 +67,7 @@
         </nav>
 
         <!-- HEADER AREA -->
-        <header class="masthead">
+        <header class="masthead" style="background-image: url('https://nsa40.casimages.com/img/2020/02/20/200220035616204375.jpg')">
             <div class="overlay"></div>
                 <div class="container">
                     <div class="row">
@@ -102,7 +102,7 @@
             <script src="https://cdn.tiny.cloud/1/u9hufommepaia2247ruh1iezehj2kr2oxnscghfn9mw7125x/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
             <script>tinymce.init({
                     selector: 'textarea',  // change this value according to the HTML
-                    toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | cut copy paste',
+                    toolbar: 'undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | outdent indent | cut copy paste',
                 });
             </script>
         </footer>
