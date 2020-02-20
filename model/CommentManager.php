@@ -52,7 +52,7 @@ class CommentManager extends Manager {
         $Comments = new Comment(); //TODO
         $Comments->hydrate($row);
 
-        return $Comments;
+        return $Comment;
     }
 
 

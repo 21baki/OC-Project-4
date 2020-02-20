@@ -99,6 +99,12 @@
 
             <script src="<?php echo PUBLICS;?>js/jquery-3.4.1.min.js"></script>
             <script src="<?php echo PUBLICS;?>js/bootstrap.min.js"></script>
+            <script src="https://cdn.tiny.cloud/1/u9hufommepaia2247ruh1iezehj2kr2oxnscghfn9mw7125x/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+            <script>tinymce.init({
+                    selector: 'textarea',  // change this value according to the HTML
+                    toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
+                });
+            </script>
         </footer>
 
 

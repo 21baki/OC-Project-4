@@ -46,7 +46,7 @@
                         <?php endif;?>
 
                         <div class="container3" style="color: <?php echo $color;?>">
-                            <div class="post">
+                            <div class="commentPost">
                                 <div class="PostContent"><?php echo $comment->getCommentContent();?></div>
                                 <br />
                                 <span class="AuthorName"><?php echo $comment->getPseudo();?></span>
