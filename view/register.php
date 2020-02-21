@@ -23,47 +23,39 @@
                 <div class="contact-form">
                     <h5>Formulaire d'inscription</h5>
                     <form class="form-horizontal" method="post" action="register">
-                        <fieldset>
 
-                            <div class="group" style="max-width: 50%;">
-                                <input type="text" name="pseudo" id="pseudo" value="<?php echo $pseudo;?>" pattern="' ^[a-zA-Z0-9_]{4,11}$\ ^ '" required/>
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
+
+                            <div class="form-group" style="max-width: 50%;">
                                 <label for="pseudo">Pseudo</label>
-                                <span class="help-block">4 à 16 caractères, lettres et/ou chiffres</span>
+
+                                <input type="text" name="pseudo" id="pseudo" value="<?php echo $pseudo;?>" class="form-control"/>
+
+                                <small class="form-text text-muted">10 caractères maximum.</small>
                             </div>
 
 
-                            <div class="group" style="max-width: 50%;">
-                                <input type="password" name="password" id="password"  value="<?php echo $password;?>" pattern="' ^[a-zA-Z0-9_]{4,11}$\ ^ '">
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label for="password">Mot de passe</label>
-                                <span class="help-block">5 à 16 caractères, lettres et chiffres, caractères spéciaux</span>
+                            <div class="form-group" style="max-width: 50%;">
+                                <label for="password1">Mot de passe</label>
+
+                                <input type="password" name="password" id="password1"  value="<?php echo $password;?>" class="form-control">
+
+                                <small class="form-text text-muted">5 à 16 caractères. </small>
                             </div>
 
-                            <div class="group" style="max-width: 50%;">
-                                <input type="password" name="confirm" id="confirm"  value="<?php echo $confirm;?>" pattern="' ^[a-zA-Z0-9_]{4,11}$\ ^ '">
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
+                            <div class="form-group" style="max-width: 50%;">
                                 <label for="confirm">Confirmation du mot de passe</label>
+                                <input type="password" name="confirm" id="confirm"  value="<?php echo $confirm;?>" class="form-control">
+
                             </div>
 
-                            <div class="group" style="max-width: 50%">
-                                <input type="text" name="email" id="email"  value="<?php echo $email;?>" pattern="' ^.+@.+\.[a-zA-Z]{2,}$\ ^ '">
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
+                            <div class="form-group" style="max-width: 50%">
                                 <label for="email">E-mail</label>
+                                <input type="text" name="email" id="email"  value="<?php echo $email;?>" class="form-control">
+
                             </div>
 
-                            <div class="form-group">
-                                <label class="col-sm-4 control-label" for="loginButton"></label>
-                                <div class="col-sm-4">
-                                    <button id="loginButton" name="loginButton" class="btn btn-primary" type="submit">Inscription</button>
-                                </div>
-                            </div>
+                            <button id="loginButton" name="loginButton" class="btn btn-primary" type="submit">Inscription</button>
 
-                        </fieldset>
                     </form>
                 <?php if(isset($_POST['loginButton'])):?>
 
