@@ -24,37 +24,43 @@
                     <h5>Formulaire d'inscription</h5>
                     <form class="form-horizontal" method="post" action="register">
 
+                        <div class="row">
 
-                            <div class="form-group" style="max-width: 50%;">
-                                <label for="pseudo">Pseudo</label>
 
-                                <input type="text" name="pseudo" id="pseudo" value="<?php echo $pseudo;?>" class="form-control"/>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="pseudo">Pseudo</label>
+                                    <input type="text" name="pseudo" id="pseudo" value="<?php echo $pseudo;?>" class="form-control"/>
+                                    <small class="form-text text-muted">3 à 10 caractères.</small>
+                                </div>
 
-                                <small class="form-text text-muted">10 caractères maximum.</small>
+                                <div class="form-group">
+                                    <label for="password1">Mot de passe</label>
+                                    <input type="password" name="password" id="password1"  value="<?php echo $password;?>" class="form-control">
+                                    <small class="form-text text-muted">5 à 16 caractères. </small>
+                                </div>
                             </div>
 
+                            <div class="col">
 
-                            <div class="form-group" style="max-width: 50%;">
-                                <label for="password1">Mot de passe</label>
+                                <div class="form-group">
+                                    <label for="email">E-mail</label>
+                                    <input type="text" name="email" id="email"  value="<?php echo $email;?>" class="form-control">
+                                    <small class="form-text text-muted">Nous ne partagerons votre e-mail avec personne.</small>
+                                </div>
 
-                                <input type="password" name="password" id="password1"  value="<?php echo $password;?>" class="form-control">
-
-                                <small class="form-text text-muted">5 à 16 caractères. </small>
+                                <div class="form-group">
+                                    <label for="confirm">Confirmation du mot de passe</label>
+                                    <input type="password" name="confirm" id="confirm"  value="<?php echo $confirm;?>" class="form-control">
+                                    <small class="form-text text-muted">Assurez-vous de ne pas avoir fait de fautes de frappe.</small>
+                                </div>
                             </div>
 
-                            <div class="form-group" style="max-width: 50%;">
-                                <label for="confirm">Confirmation du mot de passe</label>
-                                <input type="password" name="confirm" id="confirm"  value="<?php echo $confirm;?>" class="form-control">
+                        </div>
 
-                            </div>
-
-                            <div class="form-group" style="max-width: 50%">
-                                <label for="email">E-mail</label>
-                                <input type="text" name="email" id="email"  value="<?php echo $email;?>" class="form-control">
-
-                            </div>
-
+                        <div class="d-flex justify-content-center">
                             <button id="loginButton" name="loginButton" class="btn btn-primary" type="submit">Inscription</button>
+                        </div>
 
                     </form>
                 <?php if(isset($_POST['loginButton'])):?>
