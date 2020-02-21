@@ -22,7 +22,11 @@
             <div class="col-md-12 col-lg-12">
                 <div class="contact-form">
                     <h5>Formulaire d'inscription</h5>
+                    <?php if (isset($error)): ?>
+                        <?= $error;?>
+                    <?php endif;?>
                     <form class="form-horizontal" method="post" action="register">
+
 
                         <div class="row">
 
@@ -30,13 +34,13 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="pseudo">Pseudo</label>
-                                    <input type="text" name="pseudo" id="pseudo" value="<?php echo $pseudo;?>" class="form-control"/>
+                                    <input type="text" name="pseudo" id="pseudo" value="<?php echo htmlspecialchars($pseudo);?>" class="form-control"/>
                                     <small class="form-text text-muted">3 à 10 caractères.</small>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="password1">Mot de passe</label>
-                                    <input type="password" name="password" id="password1"  value="<?php echo $password;?>" class="form-control">
+                                    <input type="password" name="password" id="password1"  value="<?php echo htmlspecialchars($password);?>" class="form-control">
                                     <small class="form-text text-muted">5 à 16 caractères. </small>
                                 </div>
                             </div>
@@ -45,13 +49,13 @@
 
                                 <div class="form-group">
                                     <label for="email">E-mail</label>
-                                    <input type="text" name="email" id="email"  value="<?php echo $email;?>" class="form-control">
+                                    <input type="text" name="email" id="email"  value="<?php echo htmlspecialchars($email);?>" class="form-control">
                                     <small class="form-text text-muted">Nous ne partagerons votre e-mail avec personne.</small>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="confirm">Confirmation du mot de passe</label>
-                                    <input type="password" name="confirm" id="confirm"  value="<?php echo $confirm;?>" class="form-control">
+                                    <input type="password" name="confirm" id="confirm"  value="<?php echo htmlspecialchars($confirm);?>" class="form-control">
                                     <small class="form-text text-muted">Assurez-vous de ne pas avoir fait de fautes de frappe.</small>
                                 </div>
                             </div>
@@ -63,25 +67,6 @@
                         </div>
 
                     </form>
-                <?php if(isset($_POST['loginButton'])):?>
-
-                    <?php if(!preg_match(' ^[a-zA-Z0-9_]{4,11}$\ ^ ', $pseudo)):?>
-                        <span style="color:indigo;">Votre pseudo ne respecte pas les règles</span>
-                    <?php endif;?>
-
-                    <?php if(!preg_match(' ^[a-zA-Z0-9_]{5,16}$\ ^ ', $password)):?>
-                        <span style="color: indigo;">Votre mot de passe ne respecte pas les règles.</span>
-                    <?php endif;?>
-
-                    <?php if($password != $confirm):?>
-                        <span style="color: indigo;">Vos mots de passe ne correspondent pas.</span>
-                    <?php endif;?>
-
-                    <?php if(!preg_match(' ^.+@.+\.[a-zA-Z]{2,}$\ ^ ', $email)):?>
-                        <span style="color: indigo;">Votre e-mail est incorrect.</span>
-                    <?php endif;?>
-
-                <?php endif;?>
                 </div>
             </div>
         </div>

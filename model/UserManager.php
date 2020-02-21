@@ -43,40 +43,51 @@ class UserManager extends Manager {
 
         $req->execute();
 
-        $data = $req->fetchAll(PDO::FETCH_ASSOC);
-
-       $user = new User();
-
-       if($data != '') {
-           $user->hydrate($data);
-       }
 
         $user = new User();
         $data = $req->fetch();
 
-        if (is_array($data) && !empty($data)) { // Verif si fetch() est bien un tableau et si il ne retourne pas vide
+        if ($data && !empty($data)) { // Verif si fetch() est bien un tableau et si il ne retourne pas vide
 
             $user->hydrate($data);
+            return $user;
         } else {
 
             $user->setErrorsPseudo('Votre mot de passe ou votre pseudo est incorrect.');
-            var_dump($user);
-            // $user->hydrate($user);
+
+            //$user->hydrate($user);
             return $user;
         }
 
+        //return $user;
+    }
+
+    public function checkPseudoForLogin($pseudo)
+    {
+        $dbh = $this->dbh;
+
+        $query = 'SELECT * FROM users WHERE pseudo = :pseudo';
+
+        $req = $dbh->prepare($query);
+        $req->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
+        $req->execute();
+        $user = new User();
+        $user->hydrate($req->fetch());
+
         return $user;
+
     }
 
     public function verify($pseudo, $email)
     {
         $dbh = $this->dbh;
 
-        $query = 'SELECT * FROM users WHERE password = :password';
+        $query = 'SELECT * FROM users WHERE pseudo = :pseudo AND email = :email';
 
         $req = $dbh->prepare($query);
+
         $req->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
-        $req->bindParam('Hugo12', $email, PDO::PARAM_STR);
+        $req->bindParam('email', $email, PDO::PARAM_STR);
 
         var_dump($req);
 

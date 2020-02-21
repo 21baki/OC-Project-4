@@ -53,7 +53,11 @@ class ControllerHome extends View
 
     public function showEditForm()
     {
-        $this->render('edit');
+        if ($_SESSION['userSession']['role'] === 'admin') {
+            $this->render('edit');
+        } else {
+            $this->render('403');
+        }
     }
 
     public function showConnect()
