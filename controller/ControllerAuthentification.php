@@ -24,7 +24,7 @@ class ControllerAuthentification extends View
             $userSession = new UserSession();
             $userSession->setPseudo($pseudo);
             $userSession->setRole($user->getRole());
-             //$this->redirect('home');
+            $this->redirect('home');
             }
         }
 
@@ -45,9 +45,9 @@ class ControllerAuthentification extends View
 
     public function isValid($request)
     {
-        if($this->userSession->logged()) {
+       /* if($this->userSession->logged()) {
             $this->redirect('home');
-        }
+        } */
 
         $pseudo = $request->get('pseudo');
         $password = $request->get('password');

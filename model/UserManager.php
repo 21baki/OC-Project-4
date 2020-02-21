@@ -43,13 +43,14 @@ class UserManager extends Manager {
 
         $req->execute();
 
-        /*$data = $req->fetchAll(PDO::FETCH_ASSOC);
+        $data = $req->fetchAll(PDO::FETCH_ASSOC);
 
        $user = new User();
 
        if($data != '') {
            $user->hydrate($data);
-       } */
+       }
+
         $user = new User();
         $data = $req->fetch();
 
@@ -76,6 +77,8 @@ class UserManager extends Manager {
         $req = $dbh->prepare($query);
         $req->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
         $req->bindParam('Hugo12', $email, PDO::PARAM_STR);
+
+        var_dump($req);
 
         $req->execute();
 
