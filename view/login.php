@@ -13,22 +13,19 @@
             <div class="col-md-12 col-lg-12">
                 <div class="contact-form">
                     <h5>Connexion</h5>
+                    <hr>
                     <form method="post" action="<?php echo HOST;?>connexion.php">
                         <fieldset>
 
-                            <div class="group" style="max-width: 50%;">
-                                <input type="text" name="pseudo" id="pseudo" value="<?php echo $pseudo;?>" required>
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
+                            <div class="form-group" style="max-width: 50%;">
                                 <label for="pseudo">Pseudo</label>
+                                <input class="form-control" type="text" name="pseudo" id="pseudo" value="<?php echo $pseudo;?>" required>
                                 <span class="help-block" style="color: indigo;"><?php echo $errors;?></span>
                             </div>
 
-                            <div class="group" style="max-width: 50%;">
-                                <input type="password" name="password" id="password" value="" required>
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
+                            <div class="form-group" style="max-width: 50%;">
                                 <label for="password">Mot de passe</label>
+                                <input class="form-control" type="password" name="password" id="password" value="" required>
                                 <span class="help-block" style="color: indigo;"><?php echo $errors;?></span>
                             </div>
 
