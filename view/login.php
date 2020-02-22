@@ -27,7 +27,7 @@
 
                             <div class="form-group" style="max-width: 50%;">
                                 <label for="password">Mot de passe</label>
-                                <input class="form-control" type="password" name="password" id="password" value="<?php echo htmlspecialchars($password);?>" required>
+                                <input class="form-control" type="password" name="password" id="password" value="" >
                             </div>
 
                             <div class="form-group">

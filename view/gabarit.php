@@ -5,7 +5,7 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link type="text/css" href="<?php echo PUBLICS;?>css/style.css" rel="stylesheet">
+        <link type="text/css" href="<?= PUBLICS;?>css/style.css" rel="stylesheet">
 
         <title>Blog de Jean Forteroche</title>
 
@@ -23,22 +23,22 @@
         <!-- NAV AREA -->
         <nav  id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="<?php echo HOST;?>home">Blog de Jean Forteroche</a>
+                <a class="navbar-brand" href="<?= HOST;?>home">Blog de Jean Forteroche</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
                 <div id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo HOST;?>home">Accueil</a>
+                            <a class="nav-link" href="<?= HOST;?>home">Accueil</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo HOST;?>posts">Articles/Chapitres</a>
+                            <a class="nav-link" href="<?= HOST;?>posts">Articles/Chapitres</a>
                         </li>
 
                         <?php if($_SESSION['userSession']['role'] === 'admin'):?>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo HOST;?>newPost">Ecrire</a>
+                                <a class="nav-link" href="<?= HOST;?>newPost">Ecrire</a>
                             </li>
 
                         <?php endif;?>
@@ -46,17 +46,17 @@
                         <?php if($_SESSION['userSession']['role'] === 'visiteur'):?>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo HOST;?>loginForm">Connexion</a>
+                                <a class="nav-link" href="<?= HOST;?>loginForm">Connexion</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo HOST;?>registerForm">Inscription</a>
+                                <a class="nav-link" href="<?= HOST;?>registerForm">Inscription</a>
                             </li>
 
                         <?php else :?>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo HOST;?>logout">Déconnexion</a>
+                                <a class="nav-link" href="<?= HOST;?>logout">Déconnexion</a>
                             </li>
 
                         <?php endif;?>
@@ -84,7 +84,7 @@
         <!-- CONTENT AREA -->
         <section id="content">
 
-            <?php echo $contentPage;?>
+            <?= $contentPage;?>
 
         </section>
 
@@ -97,8 +97,8 @@
                 </div>
             </div>
 
-            <script src="<?php echo PUBLICS;?>js/jquery-3.4.1.min.js"></script>
-            <script src="<?php echo PUBLICS;?>js/bootstrap.min.js"></script>
+            <script src="<?= PUBLICS;?>js/jquery-3.4.1.min.js"></script>
+            <script src="<?= PUBLICS;?>js/bootstrap.min.js"></script>
             <script src="https://cdn.tiny.cloud/1/u9hufommepaia2247ruh1iezehj2kr2oxnscghfn9mw7125x/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
             <script>tinymce.init({
                     selector: 'textarea',  // change this value according to the HTML

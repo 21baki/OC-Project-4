@@ -34,7 +34,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="pseudo">Pseudo</label>
-                                    <input type="text" name="pseudo" id="pseudo" value="<?php echo htmlspecialchars($pseudo);?>" class="form-control"/>
+                                    <input type="text" name="pseudo" id="pseudo" value="<?= htmlspecialchars($pseudo);?>" class="form-control"/>
                                     <small class="form-text text-muted">3 à 10 caractères.</small>
                                 </div>
 

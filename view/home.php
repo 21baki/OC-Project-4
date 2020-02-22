@@ -6,8 +6,8 @@
                     <h1 class="">Dernier chapitre disponible</h1>
                     <hr>
                     <div class="post-preview">
-                        <a class="link" href="<?php echo HOST.'post/id/'.$LastPost->getId();?>">
-                        <h3> <?php echo $LastPost->getTitle();?> </h3>
+                        <a class="link" href="<?= HOST.'post/id/'.$LastPost->getId();?>">
+                        <h3> <?= $LastPost->getTitle();?> </h3>
                         </a>
                         <br />
                         <div class="PostContent">
@@ -16,14 +16,14 @@
                         <br />
                         <div>
                              <!-- <span class="post-meta"> Ecrit par <//?php echo $LastPost->getAuthor();?> </span> -->
-                            <span class="CreationDate"> <?php echo $LastPost->getCreationDate();?> </span>
+                            <span class="CreationDate"> <?= $LastPost->getCreationDate();?> </span>
                             <br />
                             <?php if($userSession->hasRole('admin')):?>
-                            <a href="<?php echo HOST.'edit/id/'.$LastPost->getId()?>">Editer le post</a>
-                            <a href="<?php echo HOST.'delete/id/'.$LastPost->getId()?>">Supprimer le post</a>
+                            <a href="<?= HOST.'edit/id/'.$LastPost->getId()?>">Editer le post</a>
+                            <a href="<?= HOST.'delete/id/'.$LastPost->getId()?>">Supprimer le post</a>
                             <?php endif;?>
                             <hr>
-                            <a class="link" href="<?php echo HOST.'post/id/'.$LastPost->getId();?>">Voir les commentaires</a>
+                            <a class="link" href="<?= HOST.'post/id/'.$LastPost->getId();?>">Voir les commentaires</a>
                         </div>
                     </div>
                     <hr>

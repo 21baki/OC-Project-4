@@ -4,12 +4,12 @@
             <div class="">
 
                 <div class="">
-                    <h3> <?php echo $Post->getTitle();?> </h3>
+                    <h3> <?= $Post->getTitle();?> </h3>
                     <br />
-                    <div class="PostContent"> <?php echo $Post->getContent();?> </div>
+                    <div class="PostContent"> <?= $Post->getContent();?> </div>
                     <br />
-                    <span class="AuthorName"> <?php echo $Post->getAuthor();?> </span>
-                    <span class="CreationDate"> <?php echo $Post->getCreationDate();?> </span>
+                    <span class="AuthorName"> <?= $Post->getAuthor();?> </span>
+                    <span class="CreationDate"> <?= $Post->getCreationDate();?> </span>
                 </div>
 
                 <?php if($userSession->logged()):?>
@@ -50,16 +50,16 @@
 
                         <div class="container3" style="color: <?php echo $color;?>">
                             <div class="commentPost">
-                                <div class="PostContent"><?php echo $comment->getComment_Content();?></div>
+                                <div class="PostContent"><?= $comment->getComment_Content();?></div>
                                 <br />
-                                <span class="AuthorName"><?php echo $comment->getPseudo();?></span>
-                                <span class="CreationDate"><?php echo $comment->getCreation_Date()->format('d/m/Y');?></span>
+                                <span class="AuthorName"><?= $comment->getPseudo();?></span>
+                                <span class="CreationDate"><?= $comment->getCreation_Date()->format('d/m/Y');?></span>
                                 <?php if(($comment->getPseudo() === $userSession->getPseudo()) || $userSession->hasRole('admin')):?>
-                                    <a href="<?php echo HOST.'editComment/postId/'.$Post->getId().'/id/'.$comment->getId();?>">Modifier</a>
-                                    <a href="<?php echo HOST.'deleteComment/postId/'.$Post->getId().'/id/'.$comment->getId();?>">Supprimer</a>
+                                    <a href="<?= HOST.'editComment/postId/'.$Post->getId().'/id/'.$comment->getId();?>">Modifier</a>
+                                    <a href="<?= HOST.'deleteComment/postId/'.$Post->getId().'/id/'.$comment->getId();?>">Supprimer</a>
                                 <?php endif;?>
                                 <?php if($userSession->logged() && ($comment->getRating() === '0')):?>
-                                    <a href="<?php echo HOST.'reportComment/postId/'.$Post->getId().'/id/'.$comment->getId();?>">Reporter</a>
+                                    <a href="<?= HOST.'reportComment/postId/'.$Post->getId().'/id/'.$comment->getId();?>">Reporter</a>
                                 <?php endif;?>
                             </div>
                         </div>
