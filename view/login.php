@@ -22,14 +22,12 @@
 
                             <div class="form-group" style="max-width: 50%;">
                                 <label for="pseudo">Pseudo</label>
-                                <input class="form-control" type="text" name="pseudo" id="pseudo" value="<?php echo $pseudo;?>" required>
-                                <span class="help-block" style="color: indigo;"><?php echo $errors;?></span>
+                                <input class="form-control" type="text" name="pseudo" id="pseudo" value="<?php echo htmlspecialchars($pseudo);?>" required>
                             </div>
 
                             <div class="form-group" style="max-width: 50%;">
                                 <label for="password">Mot de passe</label>
-                                <input class="form-control" type="password" name="password" id="password" value="" required>
-                                <span class="help-block" style="color: indigo;"><?php echo $errors;?></span>
+                                <input class="form-control" type="password" name="password" id="password" value="<?php echo htmlspecialchars($password);?>" required>
                             </div>
 
                             <div class="form-group">
