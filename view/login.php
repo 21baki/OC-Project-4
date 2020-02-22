@@ -14,6 +14,9 @@
                 <div class="contact-form">
                     <h5>Connexion</h5>
                     <hr>
+                    <?php if (isset($error)): ?>
+                        <?= $error;?>
+                    <?php endif;?>
                     <form method="post" action="<?php echo HOST;?>connexion.php">
                         <fieldset>
 

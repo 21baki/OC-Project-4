@@ -30,7 +30,7 @@ class ControllerAuthentification extends View
             $this->render('login', array('error' => 'login ou mdp incorrect'));
         }
 
-        $this->render('login', array('user' => $user));
+        //$this->render('login', array('user' => $user));
 
         $vraiPseudo = strip_tags($_POST['pseudo']);
 
