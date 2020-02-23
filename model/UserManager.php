@@ -27,7 +27,7 @@ class UserManager extends Manager {
         $req->bindParam('email', $email, PDO::PARAM_STR);
         $role = 'user';
         $req->bindParam('role', $role, PDO::PARAM_STR);
-
+        var_dump('hello from register');
         $req->execute();
     }
 
@@ -44,6 +44,10 @@ class UserManager extends Manager {
         $req->execute();
 
 
+        //La requête s'exécute bien
+        var_dump($req->execute());
+
+
         $user = new User();
         $data = $req->fetch();
 
@@ -53,11 +57,11 @@ class UserManager extends Manager {
             return $user;
         } else {
 
-            $user->setErrorsPseudo('Votre mot de passe ou votre pseudo est incorrect.');
-
             //$user->hydrate($user);
             return $user;
         }
+
+
 
         //return $user;
     }
@@ -72,8 +76,11 @@ class UserManager extends Manager {
         $req->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
         $req->execute();
         $user = new User();
-        $user->hydrate($req->fetch());
 
+        $data = $req->fetch();
+        var_dump($data);
+        $user->hydrate(array($data));
+        var_dump($user->hydrate($data));
         return $user;
 
     }
@@ -113,6 +120,8 @@ class UserManager extends Manager {
             }
 
             var_dump($data);
+
+            var_dump('hello from verify');
 
             return $user;
 
