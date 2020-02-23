@@ -68,23 +68,23 @@ class UserManager extends Manager {
     } */
 
     public function checkPseudoForLogin($pseudo)
-    {
-        $dbh = $this->dbh;
+{
+    $dbh = $this->dbh;
 
-        $query = 'SELECT * FROM users WHERE pseudo = :pseudo';
+    $query = 'SELECT * FROM users WHERE pseudo = :pseudo';
 
-        $req = $dbh->prepare($query);
-        $req->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
-        $req->execute();
-        $user = new User();
+    $req = $dbh->prepare($query);
+    $req->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
+    $req->execute();
+    $user = new User();
 
-        $data = $req->fetch();
-        var_dump($data);
-        $user->hydrate($data);
+    $data = $req->fetch();
+    var_dump($data);
+    $user->hydrate($data);
 
-        return $user;
+    return $user;
 
-    }
+}
 
     public function verify($pseudo, $email)
     {

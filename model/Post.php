@@ -99,7 +99,7 @@ class Post
     /**
      *s
      */
-    public function getCreationDate()
+    public function getCreation_Date()
     {
         return $this->creation_date;
         // $this->createdAt
@@ -110,7 +110,7 @@ class Post
      *
      * @return self
      */
-    public function setCreationDate($createdAt)
+    public function setCreation_Date($createdAt)
     {
         $this->creation_date = $createdAt;
         return $this;

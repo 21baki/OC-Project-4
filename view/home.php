@@ -16,7 +16,7 @@
                         <br />
                         <div>
                              <!-- <span class="post-meta"> Ecrit par <//?php echo $LastPost->getAuthor();?> </span> -->
-                            <span class="CreationDate"> <?= $LastPost->getCreationDate();?> </span>
+                            <span class="post-meta"> le <?= $LastPost->getCreation_Date();?> </span>
                             <br />
                             <?php if($userSession->hasRole('admin')):?>
                             <a href="<?= HOST.'edit/id/'.$LastPost->getId()?>">Editer le post</a>
