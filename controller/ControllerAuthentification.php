@@ -16,24 +16,22 @@ class ControllerAuthentification extends View
         $pseudo = $request->get('pseudo');
         $password = $request->get('password');
         $resultat = $this->manager->checkPseudoForLogin($pseudo);
-        //var_dump('hello from signin');
+        var_dump($resultat);
 
         $resultat->getPassword();
 
         //var_dump($resultat->getPassword());
         //Le mot de passe est bien retourné
         if(password_verify($password, $resultat->getPassword())) {
-            $user = $this->manager->login($pseudo, $password);
-            var_dump($user);
+            $user = $this->manager->checkPseudoForLogin($pseudo);
+
             $userSession = new UserSession();
             $userSession->setPseudo($pseudo);
             $userSession->setRole($user->getRole());
-            var_dump($userSession->setRole($user->getRole()));
 
-            //$this->redirect('home');
+            $this->redirect('home');
         } else {
             $this->render('login', array('error' => 'login ou mdp incorrect'));
-            var_dump('hello from signin3');
         }
 
         //$this->render('login', array('user' => $user));

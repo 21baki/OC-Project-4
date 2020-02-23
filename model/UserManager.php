@@ -31,11 +31,11 @@ class UserManager extends Manager {
         $req->execute();
     }
 
-    public function login($pseudo, $password)
+    /* public function login($pseudo, $password)
     {
         $dbh = $this->dbh;
 
-        $query = 'SELECT id, pseudo, password, role FROM users WHERE pseudo = :pseudo AND password = :password';
+        $query = 'SELECT * FROM users WHERE pseudo = :pseudo AND password = :password';
 
         $req = $dbh->prepare($query);
         $req->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
@@ -45,11 +45,12 @@ class UserManager extends Manager {
 
 
         //La requête s'exécute bien
-        var_dump($req->execute());
+        //var_dump($req->execute());
 
 
         $user = new User();
         $data = $req->fetch();
+        var_dump($data);
 
         if ($data && !empty($data)) { // Verif si fetch() est bien un tableau et si il ne retourne pas vide
 
@@ -64,7 +65,7 @@ class UserManager extends Manager {
 
 
         //return $user;
-    }
+    } */
 
     public function checkPseudoForLogin($pseudo)
     {
@@ -79,8 +80,8 @@ class UserManager extends Manager {
 
         $data = $req->fetch();
         var_dump($data);
-        $user->hydrate(array($data));
-        var_dump($user->hydrate($data));
+        $user->hydrate($data);
+
         return $user;
 
     }

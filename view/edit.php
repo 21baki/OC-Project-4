@@ -23,10 +23,8 @@
                         <fieldset>
 
                             <div class="group">
-                                <input type="text" name="title" id="title" required>
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label><?= $title;?></label>
+                                <input type="text" name="title" id="title"  value="<?= $title;?>" class="form-control">
+
                             </div>
 
                             <div class="group">
