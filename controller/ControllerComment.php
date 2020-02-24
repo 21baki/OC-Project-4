@@ -9,8 +9,6 @@ class ControllerComment extends View
             $this->redirect('connect');
         }
 
-        var_dump($_GET);
-
         $pseudo = $this->userSession->getPseudo();
         $content = $request->get('content');
         $postId = $request->get('id');
@@ -19,10 +17,6 @@ class ControllerComment extends View
         $manager->createComment($pseudo, $_POST['content'], explode('/',$_GET['r'])[2]);
 
         $this->redirect('post/id/'.''.$postId);
-
-        var_dump(explode('/',$_GET['r']));
-        var_dump(explode($_GET['r'],'/'));
-
 
     }
 

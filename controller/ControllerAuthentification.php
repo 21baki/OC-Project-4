@@ -16,12 +16,9 @@ class ControllerAuthentification extends View
         $pseudo = $request->get('pseudo');
         $password = $request->get('password');
         $resultat = $this->manager->checkPseudoForLogin($pseudo);
-        var_dump($resultat);
 
         $resultat->getPassword();
 
-        //var_dump($resultat->getPassword());
-        //Le mot de passe est bien retourné
         if(password_verify($password, $resultat->getPassword())) {
             $user = $this->manager->checkPseudoForLogin($pseudo);
 
@@ -34,7 +31,6 @@ class ControllerAuthentification extends View
             $this->render('login', array('error' => 'login ou mdp incorrect'));
         }
 
-        //$this->render('login', array('user' => $user));
 
     }
 
@@ -46,9 +42,6 @@ class ControllerAuthentification extends View
 
     public function isValid($request)
     {
-        /* if($this->userSession->logged()) {
-             $this->redirect('home');
-         } */
 
         $pseudo = $request->get('pseudo');
         $password = $request->get('password');
