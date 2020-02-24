@@ -1,4 +1,4 @@
-<div class="commentForm">
+<div>
     <form method="post" action="<?= HOST.'updateComment/postId/'.$Comments->getIdPost().'/id/'.$Comments->getId();?>">
         <fieldset>
             <legend>Modifier un commentaire : </legend>

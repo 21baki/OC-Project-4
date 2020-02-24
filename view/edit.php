@@ -20,6 +20,7 @@
                 <div class="contact-form">
                     <h5>Editeur</h5>
                     <form method="post" action="<?= HOST.''.$action.''.$id;?>">
+
                         <fieldset>
 
                             <div class="group">
@@ -32,6 +33,7 @@
                                 <br />
                                 <span class="help-block" id="ErrNew" style="color:indigo;"></span>
                             </div>
+
                         </fieldset>
 
                         <button id="submitButton" class="btn btn-primary" type="submit" value="">Envoyer</button>

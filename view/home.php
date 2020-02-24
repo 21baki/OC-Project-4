@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12 col-lg-12">
-                <div class="">
+                <div>
                     <h1 class="">Dernier chapitre disponible</h1>
                     <hr>
                     <div class="post-preview">
@@ -19,8 +19,10 @@
                             <span class="post-meta"> le <?= $LastPost->getCreation_Date();?> </span>
                             <br />
                             <?php if($userSession->hasRole('admin')):?>
-                            <a href="<?= HOST.'edit/id/'.$LastPost->getId()?>">Editer le post</a>
-                            <a href="<?= HOST.'delete/id/'.$LastPost->getId()?>">Supprimer le post</a>
+
+                            <a href="<?= HOST.'edit/id/'.$LastPost->getId()?>"> | Editer le post</a>
+                            <a href="<?= HOST.'delete/id/'.$LastPost->getId()?>"> | Supprimer le post</a>
+
                             <?php endif;?>
                             <hr>
                             <a class="link" href="<?= HOST.'post/id/'.$LastPost->getId();?>">Voir les commentaires</a>

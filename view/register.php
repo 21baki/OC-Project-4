@@ -1,19 +1,8 @@
- <?php /* if(isset($user) || isset($errors)){
-    $pseudo = $user->getPseudo();
-    $email = $user->getEmail();
-    $errorsPseudo = $user->getErrorPseudo();
-    $errorsMail = $user->getErrorMail();
-
-    $ErrPseudo = $errors->getErrorPseudo();
-    $ErrPass = $errors->getErrorPass();
-    $ErrConf = $errors->getErrorConf();
-    $ErrEmail = $errors->getErrorEmail();
-} else { */
+ <?php
     $pseudo = '';
     $email = '';
     $password = '';
     $confirm = '';
-
  ?>
 
 <div class="">
@@ -32,6 +21,7 @@
 
 
                             <div class="col">
+
                                 <div class="form-group">
                                     <label for="pseudo">Pseudo</label>
                                     <input type="text" name="pseudo" id="pseudo" value="<?= htmlspecialchars($pseudo);?>" class="form-control"/>
@@ -43,6 +33,7 @@
                                     <input type="password" name="password" id="password1"  value="<?php echo htmlspecialchars($password);?>" class="form-control">
                                     <small class="form-text text-muted">5 à 16 caractères. </small>
                                 </div>
+
                             </div>
 
                             <div class="col">

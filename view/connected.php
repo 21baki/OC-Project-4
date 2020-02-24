@@ -1,4 +1,4 @@
-<div class="">
+<div>
     <div class="container container2">
         <div class="row justify-content-center">
             <div class="col-md-12 col-lg-12 align-self-center">

@@ -86,8 +86,6 @@
 
             <?= $contentPage;?>
 
-            <?= var_dump($_SESSION['userSession']['role']);?>
-
         </section>
 
         <footer>

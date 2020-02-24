@@ -11,13 +11,15 @@
     <div class="container container2">
         <div class="row justify-content-center">
             <div class="col-md-12 col-lg-12">
-                <div class="contact-form">
+                <div>
                     <h5>Connexion</h5>
                     <hr>
                     <?php if (isset($error)): ?>
                         <?= $error;?>
                     <?php endif;?>
+
                     <form method="post" action="<?php echo HOST;?>connexion.php">
+
                         <fieldset>
 
                             <div class="form-group" style="max-width: 50%;">
@@ -39,6 +41,7 @@
                             </div>
 
                         </fieldset>
+
                     </form>
                 </div>
             </div>

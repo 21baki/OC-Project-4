@@ -32,6 +32,7 @@ class View
     {
         extract($params);
 
+
         $userSession = $this->userSession;
 
         ob_start();
@@ -40,7 +41,6 @@ class View
         $contentPage = ob_get_clean();
 
         include_once(VIEW.'gabarit.php');
-
     }
 
     public function redirect($route)

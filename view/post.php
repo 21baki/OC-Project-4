@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row justify-content-center">
-        <div class="">
-            <div class="">
+        <div>
+            <div>
 
-                <div class="">
+                <div>
                     <h3> <?= $Post->getTitle();?> </h3>
                     <br />
                     <div class="PostContent"> <?= $Post->getContent();?> </div>
@@ -15,6 +15,7 @@
                 <?php if($userSession->logged()):?>
 
                     <div class="contact-form">
+
                         <h5>Ecrire un commentaire :</h5>
 
                         <form method="post" action="<?= HOST.'comment/id/'.$Post->getId();?>">
@@ -23,33 +24,31 @@
                                 <input id="loginBut" class="btn btn-primary" type="submit" value="Envoyer" />
                             </fieldset>
                         </form>
+
                     </div>
 
                 <?php endif;?>
 
             </div>
 
-            <?php var_dump('Hello');?>
             <?php if(isset($Comments)):?>
+
                 <h2>Commentaires</h2>
+
                 <hr>
-                <?php //var_dump($Comments); ?>
 
                 <?php foreach($Comments as $comment):?>
 
-                    <?php //var_dump($comment);?>
-                    <?php //var_dump($Comments);?>
-
                     <?php if($comment->getRating() != 0 || $userSession->hasRole('admin') || $userSession->hasRole('user')):?>
 
-                        <?php if($comment->getRating() == 2):?>
+                        <?php if($comment->getRating() != 0):?>
                             <?php $color='orange';?>
                         <?php else:?>
                             <?php $color='black'; ?>
                         <?php endif;?>
 
 
-                        <div class="container3" style="color: <?php echo $color;?>">
+                        <div  style="color: <?php echo $color;?>">
                             <div class="commentPost">
                                 <div class="PostContent"><?= $comment->getComment_Content();?></div>
                                 <br />
