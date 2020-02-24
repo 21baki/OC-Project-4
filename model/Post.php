@@ -1,5 +1,5 @@
 <?php
-//TODO: $title et $creation_date
+
 
 class Post
 {

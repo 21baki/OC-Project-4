@@ -27,7 +27,6 @@ class UserManager extends Manager {
         $req->bindParam('email', $email, PDO::PARAM_STR);
         $role = 'user';
         $req->bindParam('role', $role, PDO::PARAM_STR);
-        var_dump('hello from register');
         $req->execute();
     }
 
@@ -79,7 +78,6 @@ class UserManager extends Manager {
     $user = new User();
 
     $data = $req->fetch();
-    var_dump($data);
     $user->hydrate($data);
 
     return $user;
@@ -97,15 +95,11 @@ class UserManager extends Manager {
         $req->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
         $req->bindParam('email', $email, PDO::PARAM_STR);
 
-        var_dump($req);
 
         $req->execute();
 
-        var_dump($pseudo);
 
         $data = $req->fetchAll(PDO::FETCH_ASSOC);
-
-
 
         $user = new User();
 
@@ -120,14 +114,9 @@ class UserManager extends Manager {
                 $user->setErrorsMail('L\'email est déja pris. Merci d\'en choisir un autre.');
             }
 
-            var_dump($data);
-
-            var_dump('hello from verify');
-
             return $user;
 
         }
-
 
     }
 }
