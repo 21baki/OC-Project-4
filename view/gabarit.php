@@ -3,11 +3,13 @@
     <head>
         <meta charset="utf-8" />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <link type="text/css" href="<?= PUBLICS;?>css/style.css" rel="stylesheet">
+        <link type="text/css" href="<?= PUBLICS;?>css/bootstrap.min.css" rel="stylesheet">
 
-        <link type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link type="text/css" href="<?= PUBLICS;?>css/clean-blog.css" rel="stylesheet">
+
+        <link type="text/css" href="<?= PUBLICS;?>css/font-awesome/all.min.css" rel="stylesheet">
 
         <title>Blog de Jean Forteroche</title>
 
@@ -28,8 +30,7 @@
                 <a class="navbar-brand" href="<?= HOST;?>home">Blog de Jean Forteroche</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
-                    <i class="fas fa-bars">
-                        ::before
+                    <i class="fas fa-angle-double-down">
                     </i>
                 </button>
                 <div id="navbarResponsive" class="collapse navbar-collapse">
@@ -105,8 +106,11 @@
             </div>
 
             <script src="<?= PUBLICS;?>js/jquery-3.4.1.min.js"></script>
-            <script src="<?= PUBLICS;?>js/bootstrap.min.js"></script>
+
+            <script src="<?= PUBLICS;?>js/bootstrap.bundle.min.js"></script>
+
             <script src="<?= PUBLICS;?>js/clean-blog.min.js"></script>
+
             <script src="https://cdn.tiny.cloud/1/u9hufommepaia2247ruh1iezehj2kr2oxnscghfn9mw7125x/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
             <script>tinymce.init({
                     selector: 'textarea',  // change this value according to the HTML
