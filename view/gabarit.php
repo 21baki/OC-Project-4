@@ -30,8 +30,6 @@
                 <a class="navbar-brand" href="<?= HOST;?>home">Blog de Jean Forteroche</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
-                    <i class="fas fa-angle-double-down">
-                    </i>
                 </button>
                 <div id="navbarResponsive" class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto">
@@ -105,7 +103,7 @@
                 </div>
             </div>
 
-            <script src="<?= PUBLICS;?>js/jquery-3.4.1.min.js"></script>
+            <script src="<?= PUBLICS;?>js/jquery.js"></script>
 
             <script src="<?= PUBLICS;?>js/bootstrap.bundle.min.js"></script>
 
