@@ -9,6 +9,8 @@
 
         <link type="text/css" href="<?= PUBLICS;?>css/clean-blog.css" rel="stylesheet">
 
+        <link type="text/css" href="<?= PUBLICS;?>css/style.css" rel="stylesheet">
+
         <link type="text/css" href="<?= PUBLICS;?>css/font-awesome/all.min.css" rel="stylesheet">
 
         <title>Blog de Jean Forteroche</title>

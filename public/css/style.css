@@ -1,1 +1,3 @@
-
+.PostContent p {
+    word-wrap: anywhere;
+}
