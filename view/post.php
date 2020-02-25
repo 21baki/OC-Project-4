@@ -22,7 +22,7 @@
                         <form method="post" action="<?= HOST.'comment/id/'.$Post->getId();?>">
                             <fieldset>
                                 <textarea name="content" type="text" id="content" style="height: 300px;"></textarea>
-
+                                    <hr>
                                 <input id="loginBut" class="btn btn-primary" type="submit" value="Envoyer" />
                             </fieldset>
                         </form>
@@ -34,7 +34,7 @@
             </div>
 
             <?php if(isset($Comments)):?>
-
+                <hr>
                 <h2>Commentaires</h2>
             <br>
 
@@ -51,7 +51,7 @@
                     <?php endif;?>
                         <div class="container">
 
-                            <div class="" style="border: 1px solid black; word-wrap: break-word">
+                            <div>
 
                                 <div class="PostContent" style="word-wrap: break-word"><?= $comment->getComment_Content();?></div>
                                 <br />
@@ -67,7 +67,7 @@
                                 <?php if(($userSession->logged()) && ($comment->getPseudo() != $userSession->getPseudo()) && ($comment->getRating() === 0)):?>
                                     <a href="<?= HOST.'reportComment/postId/'.$Post->getId().'/id/'.$comment->getId();?>"> | Reporter</a>
                                 <?php endif;?>
-
+                                <hr>
                             </div>
 
                         </div>
