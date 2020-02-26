@@ -40,6 +40,13 @@ class PostManager extends Manager
         return $Posts;
     }
 
+    public function countPost()
+    {
+        $count = (int)$this->dbh->query('SELECT COUNT(id) FROM posts')->fetch()[0];
+
+        return $count;
+    }
+
     public function getLastPost()
     {
         $dbh = $this->dbh;

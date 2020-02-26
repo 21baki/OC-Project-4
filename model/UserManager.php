@@ -40,7 +40,7 @@ class UserManager extends Manager {
     $req->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
     $req->execute();
     $user = new User();
-
+    //TODO: Faire une condition
     $data = $req->fetch();
     $user->hydrate($data);
 
