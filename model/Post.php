@@ -9,6 +9,10 @@ class Post
     private $author;
     private $creation_date;
 
+    /**
+     * Post constructor.
+     * @param null $data
+     */
     public function __construct($data = null)
     {
         if($data)
@@ -17,6 +21,9 @@ class Post
         }
     }
 
+    /**
+     * @param array $data
+     */
     public function hydrate(array $data)
     {
         foreach($data as $key => $value) {

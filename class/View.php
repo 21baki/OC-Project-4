@@ -28,6 +28,10 @@ class View
         return $this;
     }
 
+    /**
+     * @param $template
+     * @param array $params
+     */
     public function render($template, $params = array())
     {
         extract($params);
@@ -43,6 +47,9 @@ class View
         include_once(VIEW.'gabarit.php');
     }
 
+    /**
+     * @param $route
+     */
     public function redirect($route)
     {
         header('Location:'.HOST.$route);

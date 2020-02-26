@@ -9,6 +9,10 @@ class CommentManager extends Manager {
         return 'CommentManager';
     }
 
+    /**
+     * @param $postId
+     * @return array|null
+     */
     public function getComments($postId)
     {
         $dbh = $this->dbh;
@@ -35,8 +39,11 @@ class CommentManager extends Manager {
         return $Comments;
     }
 
-    public
-    function getComment($id)
+    /**
+     * @param $id
+     * @return Comment
+     */
+    public function getComment($id)
     {
         $dbh = $this->dbh;
 
@@ -55,7 +62,11 @@ class CommentManager extends Manager {
         return $Comments;
     }
 
-
+    /**
+     * @param $pseudo
+     * @param $comment_content
+     * @param $postId
+     */
     public function createComment($pseudo, $comment_content, $postId)
     {
         $dbh = $this->dbh;
@@ -74,6 +85,12 @@ class CommentManager extends Manager {
         var_dump($postId);
     }
 
+    /**
+     * @param $id
+     * @param $postId
+     * @param $pseudo
+     * @param $comment_content
+     */
     public function updateComment($id, $postId, $pseudo, $comment_content)
     {
         $dbh = $this->dbh;
@@ -89,6 +106,9 @@ class CommentManager extends Manager {
         $req->execute();
     }
 
+    /**
+     * @param $id
+     */
     public function deleteComment($id)
     {
         $dbh = $this->dbh;
@@ -101,6 +121,9 @@ class CommentManager extends Manager {
         $req->execute();
     }
 
+    /**
+     * @param $id
+     */
     public function reportComment($id)
     {
         $dbh = $this->dbh;

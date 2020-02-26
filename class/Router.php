@@ -29,6 +29,10 @@ class Router
         "delete"            => ["controller" => 'ControllerPost',       "method" => 'deleteArticle', "area" => 'admin'],
      ];
 
+    /**
+     * Router constructor.
+     * @param $url
+     */
     public function __construct($url)
     {
         $this->url = $url;
@@ -53,6 +57,9 @@ class Router
         return $elements[0];
     }
 
+    /**
+     * @return array
+     */
     public function getParams()
     {
         $params = array();
@@ -72,6 +79,9 @@ class Router
         return $params;
     }
 
+    /**
+     *
+     */
     public function renderController()
     {
         $request = $this->request;

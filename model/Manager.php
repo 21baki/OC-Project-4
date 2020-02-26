@@ -1,8 +1,5 @@
 <?php
 
-
- //Don't forget use this when class use namespace
-
 abstract class Manager
 {
     protected $dbh;

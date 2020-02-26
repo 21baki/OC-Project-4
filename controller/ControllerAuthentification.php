@@ -6,11 +6,17 @@ class ControllerAuthentification extends View
 {
     private $manager;
 
+    /**
+     * ControllerAuthentification constructor.
+     */
     public function __construct()
     {
         $this->manager = new UserManager();
     }
 
+    /**
+     * @param $request
+     */
     public function signIn($request)
     {
         $pseudo = $request->get('pseudo');
@@ -34,11 +40,8 @@ class ControllerAuthentification extends View
         } else {
             $this->render('login', array('error' => 'Pseudo ou mot de passe incorrect'));
         }
-
-
-
-
     }
+
 
     public function signOut()
     {
@@ -46,6 +49,9 @@ class ControllerAuthentification extends View
         header('Location:index');
     }
 
+    /**
+     * @param $request
+     */
     public function isValid($request)
     {
 

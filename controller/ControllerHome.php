@@ -3,6 +3,7 @@
 
 class ControllerHome extends View
 {
+
     public function showHome()
     {
         $manager = new PostManager();
@@ -52,6 +53,9 @@ class ControllerHome extends View
 
     }
 
+    /**
+     * @param $request
+     */
     public function showPost($request)
     {
         $id = $request->get('id');
@@ -64,6 +68,9 @@ class ControllerHome extends View
         $this->render('post', array('Post' => $Post, 'Comments' => $Comments));
     }
 
+    /**
+     * @param $request
+     */
     public function showComments($request)
     {
         $postId = $request->get('id');

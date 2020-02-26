@@ -4,7 +4,9 @@ require_once('Manager.php');
 
 class UserManager extends Manager {
 
-    //two functions that inherit from Manager
+    /**
+     * UserManager constructor.
+     */
     public function __construct()
     {
         parent::__construct();
@@ -15,6 +17,11 @@ class UserManager extends Manager {
         return "UserManager";
     }
 
+    /**
+     * @param $pseudo
+     * @param $password
+     * @param $email
+     */
     public function register($pseudo, $password, $email)
     {
         $dbh = $this->dbh;
@@ -30,6 +37,10 @@ class UserManager extends Manager {
         $req->execute();
     }
 
+    /**
+     * @param $pseudo
+     * @return bool|User
+     */
     public function checkPseudoForLogin($pseudo)
     {
     $dbh = $this->dbh;
@@ -52,6 +63,11 @@ class UserManager extends Manager {
     return $user;
     }
 
+    /**
+     * @param $pseudo
+     * @param $email
+     * @return User
+     */
     public function verify($pseudo, $email)
     {
         $dbh = $this->dbh;

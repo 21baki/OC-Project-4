@@ -2,6 +2,9 @@
 
 class ControllerComment extends View
 {
+    /**
+     * @param $request
+     */
     public function createComment($request)
     {
 
@@ -20,6 +23,9 @@ class ControllerComment extends View
 
     }
 
+    /**
+     * @param $request
+     */
     public function editComment($request)
     {
         if($this->userSession->noRole('user') && $this->userSession->noRole('admin')) {
@@ -40,6 +46,9 @@ class ControllerComment extends View
         $this->render('editCom', array('Comments' => $Comments));
     }
 
+    /**
+     * @param $request
+     */
     public function updateComment($request)
     {
         if($this->userSession->noRole('user') && $this->userSession->noRole('admin')) {
@@ -57,6 +66,9 @@ class ControllerComment extends View
         $this->redirect('post/id'.''.$postId);
     }
 
+    /**
+     * @param $request
+     */
     public function deleteComment($request)
     {
         if(!$this->userSession->logged()) {
@@ -79,6 +91,9 @@ class ControllerComment extends View
         $this->redirect('post/id/'.''.$postId);
     }
 
+    /**
+     * @param $request
+     */
     public function reportComment($request)
     {
         if(!$this->userSession->logged()) {

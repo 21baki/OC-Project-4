@@ -1,8 +1,10 @@
 <?php
 
-
 require_once('Manager.php');
 
+/**
+ * Class PostManager
+ */
 class PostManager extends Manager
 {
 
@@ -20,7 +22,9 @@ class PostManager extends Manager
 
     /* this function recover the posts in DB
      */
-
+    /**
+     * @return array
+     */
     public function getPosts()
     {
         $dbh = $this->dbh;
@@ -62,7 +66,9 @@ class PostManager extends Manager
         return $Posts;
     }
 
-    //TODO
+    /**
+     * @return int
+     */
     public function countPost()
     {
         $dbh = $this->dbh;
@@ -75,6 +81,9 @@ class PostManager extends Manager
         return $count;
     }
 
+    /**
+     * @return Post
+     */
     public function getLastPost()
     {
         $dbh = $this->dbh;
@@ -91,8 +100,8 @@ class PostManager extends Manager
     }
 
     /* param $postId = (int)
-     * this function retrieve posts 1 by 1, according to their id*/
-
+     * this function retrieve posts 1 by 1, according to their id
+     * */
     public function getPost($id)
     {
         $dbh = $this->dbh;
@@ -110,6 +119,11 @@ class PostManager extends Manager
 
     }
 
+    /**
+     * @param $title
+     * @param $content
+     * @param $author
+     */
     public function createPost($title, $content, $author)
     {
         $dbh = $this->dbh;
@@ -125,6 +139,12 @@ class PostManager extends Manager
 
     }
 
+    /**
+     * @param $id
+     * @param $title
+     * @param $content
+     * @param $author
+     */
     public function updatePost($id, $title, $content, $author)
     {
         $dbh = $this->dbh;
@@ -139,6 +159,9 @@ class PostManager extends Manager
         $req->execute();
     }
 
+    /**
+     * @param $id
+     */
     public function deletePost($id)
     {
         $dbh = $this->dbh;
@@ -149,5 +172,4 @@ class PostManager extends Manager
         $req->bindParam('id', $id, PDO::PARAM_INT);
         $req->execute();
     }
-
 }

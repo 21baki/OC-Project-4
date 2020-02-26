@@ -2,6 +2,9 @@
 
 class UserSession
 {
+    /**
+     * UserSession constructor.
+     */
     public function __construct()
     {
         if(!isset($_SESSION['userSession'])) {
@@ -11,6 +14,9 @@ class UserSession
         $this->hydrate($_SESSION['userSession']);
     }
 
+    /**
+     * @param $datas
+     */
     public function hydrate($datas)
     {
         $userSession = $_SESSION['userSession'];
@@ -19,6 +25,9 @@ class UserSession
         $this->setRole($userSession['role']);
     }
 
+    /**
+     * @return bool
+     */
     public function logged()
     {
         if($_SESSION['userSession']['role'] === 'visiteur') {
@@ -28,6 +37,10 @@ class UserSession
         }
     }
 
+    /**
+     * @param $role
+     * @return bool
+     */
     public function noRole($role)
     {
         if($role != $this->getRole()) {
@@ -37,6 +50,10 @@ class UserSession
         }
     }
 
+    /**
+     * @param $role
+     * @return bool
+     */
     public function hasRole($role)
     {
        if($role != $this->getRole()) {
@@ -46,11 +63,18 @@ class UserSession
        }
     }
 
+    /**
+     * @return mixed
+     */
     public function getPseudo()
     {
         return $_SESSION['userSession']['pseudo'];
     }
 
+    /**
+     * @param $pseudo
+     * @return $this
+     */
     public function setPseudo($pseudo)
     {
         $_SESSION['userSession']['pseudo'] = $pseudo;
@@ -58,11 +82,18 @@ class UserSession
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getRole()
     {
         return $_SESSION['userSession']['role'];
     }
 
+    /**
+     * @param $role
+     * @return $this
+     */
     public function setRole($role)
     {
         $_SESSION['userSession']['role'] = $role;

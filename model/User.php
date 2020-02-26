@@ -7,7 +7,9 @@ class User {
     private $email;
     private $role;
 
-
+    /**
+     * @param array $data
+     */
     public function hydrate(array $data)
     {
         foreach ($data as $key => $value) {

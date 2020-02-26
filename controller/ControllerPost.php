@@ -3,6 +3,9 @@
 class ControllerPost extends View
 {
     //I replaced "post" by "article" in the methods to avoid confusion with the PostManager methods
+    /**
+     * @param $request
+     */
     public function editArticle($request)
     {
         if($this->userSession->noRole('admin')) {
@@ -17,6 +20,9 @@ class ControllerPost extends View
         $this->render('edit', array('article' => $article));
     }
 
+    /**
+     * @param $request
+     */
     public function createArticle($request)
     {
         if($this->userSession->noRole('admin')) {
@@ -33,6 +39,9 @@ class ControllerPost extends View
         $this->redirect('index');
     }
 
+    /**
+     * @param $request
+     */
     public function updateArticle($request)
     {
         if($this->userSession->noRole('admin')) {
@@ -50,6 +59,9 @@ class ControllerPost extends View
         $this->redirect('posts');
     }
 
+    /**
+     * @param $request
+     */
     public function deleteArticle($request)
     {
         if($this->userSession->noRole('admin')) {

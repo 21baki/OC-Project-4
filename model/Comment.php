@@ -9,6 +9,9 @@ class Comment
     private $creation_date;
     private $rating;
 
+    /**
+     * @param array $data
+     */
      public function hydrate(array $data)
     {
         foreach($data as $key => $value) {
