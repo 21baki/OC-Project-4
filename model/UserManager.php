@@ -43,7 +43,11 @@ class UserManager extends Manager {
     //TODO: Faire une condition
     $data = $req->fetch();
 
-    $user->hydrate($data);
+    if($data) {
+        $user->hydrate($data);
+    } else {
+        return false;
+    }
 
     return $user;
     }

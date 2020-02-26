@@ -17,19 +17,25 @@ class ControllerAuthentification extends View
         $password = $request->get('password');
         $resultat = $this->manager->checkPseudoForLogin($pseudo);
 
-        $resultat->getPassword();
+        if ($resultat) {
+            $resultat->getPassword();
 
-        if(password_verify($password, $resultat->getPassword())) {
-            $user = $this->manager->checkPseudoForLogin($pseudo);
+            if(password_verify($password, $resultat->getPassword())) {
+                $user = $this->manager->checkPseudoForLogin($pseudo);
 
-            $userSession = new UserSession();
-            $userSession->setPseudo($pseudo);
-            $userSession->setRole($user->getRole());
+                $userSession = new UserSession();
+                $userSession->setPseudo($pseudo);
+                $userSession->setRole($user->getRole());
 
-            $this->redirect('home');
+                $this->redirect('home');
+            } else {
+                $this->render('login', array('error' => 'Pseudo ou mot de passe incorrect'));
+            }
         } else {
-            $this->render('login', array('error' => 'login ou mdp incorrect'));
+            $this->render('login', array('error' => 'Pseudo ou mot de passe incorrect'));
         }
+
+
 
 
     }
