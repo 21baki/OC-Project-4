@@ -40,9 +40,35 @@ class PostManager extends Manager
         return $Posts;
     }
 
+    //TODO
+    public function get5Posts($start, $perPage)
+    {
+        $dbh = $this->dbh;
+        $query = 'SELECT * FROM posts ORDER BY creation_date DESC LIMIT $start, $perPage';
+
+        $req = $dbh->prepare($query);
+        $req->execute();
+
+        while($row = $req->fetch(PDO::FETCH_ASSOC)) {
+            $post = new Post();
+
+            $post->hydrate($row);
+
+            $Posts[] = $post;
+        }
+
+        return $Posts;
+    }
+
+    //TODO
     public function countPost()
     {
-        $count = (int)$this->dbh->query('SELECT COUNT(id) FROM posts')->fetch()[0];
+        $dbh = $this->dbh;
+        $query =  'SELECT COUNT(id) FROM posts';
+
+        $req = $dbh->prepare($query);
+        $req->execute();
+        $count = (int) $req->fetch()[0];
 
         return $count;
     }

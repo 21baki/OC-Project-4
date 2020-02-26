@@ -19,6 +19,20 @@ class ControllerHome extends View
         $this->render('posts',  array('Posts' => $Posts));
     }
 
+    //TODO
+    public function show5Posts()
+    {
+        $manager = new PostManager();
+        $count = $manager->countPost();
+
+        $currentPage = $_GET['page'] ?? 1;
+
+        if(!filter_var($currentPage, FILTER_VALIDATE_INT) || $currentPage <= 0) {
+            $this->show404();
+        }
+
+    }
+
     public function showPost($request)
     {
         $id = $request->get('id');
