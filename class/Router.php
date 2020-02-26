@@ -7,6 +7,7 @@ class Router
         "index"             => ["controller" => 'ControllerHome',         "method" => 'showHome',         "area" => ''],
         "home"              => ["controller" => 'ControllerHome',         "method" => 'showHome',         "area" => ''],
         "posts"             => ["controller" => 'ControllerHome',         "method" => 'showPosts',        "area" => ''],
+        //"posts"             => ["controller" => 'ControllerHome',         "method" => 'show5Posts',        "area" => ''],
         "post"              => ["controller" => 'ControllerHome',         "method" => 'showPost',         "area" => ''],
         "loginForm"         => ["controller" => 'ControllerHome',         "method" => 'showLogin',        "area" => ''],
         "registerForm"      => ["controller" => 'ControllerHome',         "method" => 'showRegistration', "area" => ''],

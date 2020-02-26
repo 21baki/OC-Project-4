@@ -27,9 +27,28 @@ class ControllerHome extends View
 
         $currentPage = $_GET['page'] ?? 1;
 
+        var_dump($currentPage);
+
         if(!filter_var($currentPage, FILTER_VALIDATE_INT) || $currentPage <= 0) {
             $this->show404();
         }
+
+        if($currentPage === '1') {
+            header('Location: index.php?action=posts');
+        }
+
+        $perPage = 5;
+        $start = $perPage*($currentPage-1);
+        var_dump($start);
+        $pages = ceil($count /$perPage);
+
+        if($currentPage > $pages) {
+            $this->show404();
+        }
+
+        $Posts = $manager->get5Posts($start, $perPage);
+
+        $this->render('posts', array('Posts' => $Posts));
 
     }
 

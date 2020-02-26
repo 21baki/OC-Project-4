@@ -44,12 +44,14 @@ class PostManager extends Manager
     public function get5Posts($start, $perPage)
     {
         $dbh = $this->dbh;
-        $query = 'SELECT * FROM posts ORDER BY creation_date DESC LIMIT $start, $perPage';
+        $query = 'SELECT * FROM posts ORDER BY creation_date DESC LIMIT $start, $perPage ';
 
         $req = $dbh->prepare($query);
+        $req->bindParam('start', $start);
+        $req->bindParam('perPage', $perPage);
         $req->execute();
 
-        while($row = $req->fetch(PDO::FETCH_ASSOC)) {
+         while($row = $req->fetch(PDO::FETCH_ASSOC)) {
             $post = new Post();
 
             $post->hydrate($row);
@@ -64,7 +66,7 @@ class PostManager extends Manager
     public function countPost()
     {
         $dbh = $this->dbh;
-        $query =  'SELECT COUNT(id) FROM posts';
+        $query = 'SELECT COUNT(id) FROM posts';
 
         $req = $dbh->prepare($query);
         $req->execute();

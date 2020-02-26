@@ -3,7 +3,7 @@
         <div class="col-md-12 col-lg-12">
             <div>
                 <h2> Tous les Articles/Chapitres </h2>
-                <hr>
+
                 <?php foreach($Posts as $post):?>
 
                 <div class="post-preview">
