@@ -73,6 +73,6 @@ class ControllerPost extends View
         $manager = new PostManager();
         $manager->deletePost($id);
 
-        $this->redirect('post');
+        $this->redirect('posts');
     }
 }

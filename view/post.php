@@ -34,9 +34,11 @@
             </div>
 
             <?php if(isset($Comments)):?>
-                <hr>
+                <hr/ >
+
                 <h2>Commentaires</h2>
-            <br>
+
+                <br />
 
                 <?php foreach($Comments as $comment):?>
 
@@ -59,7 +61,7 @@
                                 <span class="CreationDate"><?= $comment->getCreation_Date()->format('d/m/Y');?></span>
 
                                 <?php if(($comment->getPseudo() === $userSession->getPseudo()) || $userSession->hasRole('admin')):?>
-                                    <br>
+                                    <br />
                                     <a href="<?= HOST.'editComment/postId/'.$Post->getId().'/id/'.$comment->getId();?>">Modifier</a>
                                     <a href="<?= HOST.'deleteComment/postId/'.$Post->getId().'/id/'.$comment->getId();?>"> | Supprimer</a>
                                 <?php endif;?>
@@ -67,7 +69,7 @@
                                 <?php if(($userSession->logged()) && ($comment->getPseudo() != $userSession->getPseudo()) && ($comment->getRating() === 0)):?>
                                     <a href="<?= HOST.'reportComment/postId/'.$Post->getId().'/id/'.$comment->getId();?>"> | Reporter</a>
                                 <?php endif;?>
-                                <hr>
+                                <hr />
                             </div>
 
                         </div>

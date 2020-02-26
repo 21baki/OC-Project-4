@@ -3,7 +3,7 @@
         <div class="col-md-12 col-lg-12">
             <div>
                 <h2> Tous les Articles/Chapitres </h2>
-
+                <hr>
                 <?php foreach($Posts as $post):?>
 
                 <div class="post-preview">
@@ -15,7 +15,8 @@
                     <span class="post-meta">le <?= $post->getCreation_Date();?> </span>
 
                     <?php if($userSession->hasRole('admin')):?>
-                    <a class="link" href="<?= HOST.'edit/id/'.$post->getId()?>"> | Editer</a>
+                    <br />
+                    <a class="link" href="<?= HOST.'edit/id/'.$post->getId()?>">Editer</a>
                     <a class="link" href="<?= HOST.'delete/id/'.$post->getId()?>"> | Supprimer</a>
                     <?php endif;?>
 

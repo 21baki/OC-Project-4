@@ -14,6 +14,7 @@
                     <?php if (isset($error)): ?>
                         <?= $error;?>
                     <?php endif;?>
+                    <hr>
                     <form class="form-horizontal" method="post" action="register">
 
 
@@ -24,7 +25,7 @@
 
                                 <div class="form-group">
                                     <label for="pseudo">Pseudo</label>
-                                    <input type="text" name="pseudo" id="pseudo" value="<?= htmlspecialchars($pseudo);?>" class="form-control" required/>
+                                    <input type="text" name="pseudo" id="pseudo" value="<?= htmlspecialchars($pseudo);?>" class="form-control"/>
                                     <small class="form-text text-muted">3 à 10 caractères.</small>
                                 </div>
 
@@ -40,7 +41,7 @@
 
                                 <div class="form-group">
                                     <label for="email">E-mail</label>
-                                    <input type="text" name="email" id="email"  value="<?php echo htmlspecialchars($email);?>" class="form-control" required/>
+                                    <input type="email" name="email" id="email"  value="<?php echo htmlspecialchars($email);?>" class="form-control" required/>
                                     <small class="form-text text-muted">Nous ne partagerons votre e-mail avec personne.</small>
                                 </div>
 

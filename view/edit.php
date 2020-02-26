@@ -28,6 +28,8 @@
 
                             </div>
 
+                            <hr />
+
                             <div class="group">
                                 <textarea name="content" type="text" id="content" style="height: 500px;"><?= $content;?></textarea>
                                 <br />

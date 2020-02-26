@@ -1,6 +1,5 @@
 <?php
 
-
 class ControllerHome extends View
 {
 
@@ -66,6 +65,7 @@ class ControllerHome extends View
         $Comments = $manager2->getComments($id);
 
         $this->render('post', array('Post' => $Post, 'Comments' => $Comments));
+
     }
 
     /**

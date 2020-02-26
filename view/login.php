@@ -13,7 +13,7 @@
             <div class="col-md-12 col-lg-12">
                 <div>
                     <h5>Connexion</h5>
-                    <hr>
+                    <hr />
                     <?php if (isset($error)): ?>
                         <?= $error;?>
                     <?php endif;?>

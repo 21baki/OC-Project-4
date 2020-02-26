@@ -75,7 +75,7 @@ class ControllerAuthentification extends View
                 $this->redirect('home');
             }
         } else {
-            $this->render('register', array('error' => 'login ou mdp incorrect'));
+            $this->render('register', array('error' => 'Les mots de passe ne correspondent pas.'));
         }
 
     }
